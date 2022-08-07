@@ -41,7 +41,6 @@ function getAppello(req,callback){
             if(error) {
                 callback(error,null);
             }
-            console.log("RESULT: ",result)
             callback(null,result);
         });
     })

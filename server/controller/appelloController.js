@@ -45,7 +45,6 @@ exports.getAppello = function(req,res){
             };
             res.send(response);
         }
-        console.log("RISULTATO CALLBACK",result);
         res.send(result);
     })
 }
