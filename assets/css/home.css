@@ -1,0 +1,162 @@
+body{
+    margin: 0%;
+    background-color: #002c3e;
+    box-sizing: border-box;
+}
+
+nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#c-navbar{
+    background-color: #002c3e;
+    color: #f7f8f3;
+}
+
+#logo{
+    margin-left: 15px;
+    width: 400px;
+}
+
+#logo::before{
+    content: "Web";
+    color: #f7444e;
+}
+
+#menu{
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    align-items: center;
+    margin-bottom: 8px;
+    list-style: none;
+}
+
+#menu li a{
+    text-decoration: none;
+    color: #f7f8f3;
+}
+
+#menu li a:hover{
+    color:#f7444e;
+}
+
+#container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 1fr auto;
+    row-gap: 30px;
+}
+
+.container>#dash{
+    width: 100%;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+#dash>h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0%;
+    height: 100%;
+    font-size: 60px;
+    color: #f7f8f3;
+}
+
+#body_grid{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 50px;
+}
+
+.card{
+    background-color: transparent;
+    border: 2px solid #f7f8f3;
+    border-radius: 5px;
+    width: 550px;
+    height: 340px;
+    color: #f7f8f3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+}
+
+#g_studenti{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#promossi,#rimandati{
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+#numPromossi{
+    color: #33CCCC;
+}
+
+#numRimandati{
+    color: #FCB91C;
+}
+
+#g_tesisti{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#div_counter{
+    border: 1px solid #f7f8f3;
+    border-radius: 5px;
+    text-align: center;
+    width: 250px;
+}
+
+#counter{
+    font-size: 50px;
+    font-weight: bold;
+    color: #f7444e;
+}
+
+.card_progettisti,.card_tesisti{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 50px;
+    background-color: transparent;
+    border: 2px solid #f7f8f3;
+    border-radius: 5px;
+    width: 550px;
+    height: 340px;
+    color: #f7f8f3;
+}
+
+#g_progettisti{
+    display: flex;
+    justify-content: start;
+    align-content: center;
+}
+
+#annoDiRiferimento{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#annoDiRiferimento>span{
+    padding-right: 10px;
+}

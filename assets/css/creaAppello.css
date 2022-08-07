@@ -1,0 +1,36 @@
+.container2{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px auto;
+    align-items: center;
+}
+
+.container2>h1{
+    color: #f7f8f3;
+    justify-self: center;
+    font-size: 60px;
+}
+
+#formAddAppello{
+    color: #f7f8f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0px none transparent;
+}
+
+#compile{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    border: 1px solid white;
+    height: 300px;
+}
+
+.labelCreateAppello{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
