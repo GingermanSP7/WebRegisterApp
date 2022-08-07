@@ -6,3 +6,5 @@ let studente = sql.query("create table if not exists studente( "+
     "cognome varchar(25) not null"+
     ")"
 )
+
+module.exports = studente;

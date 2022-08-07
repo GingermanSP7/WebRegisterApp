@@ -13,3 +13,4 @@ let esame = sql.query("create table if not exists esame ("+
     "stato varchar(20),"
 )
 
+module.exports = esame;

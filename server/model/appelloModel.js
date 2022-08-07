@@ -2,5 +2,36 @@ const sql = require("../database/dbConnection");
 
 let appello = sql.query("create table if not exists appello ("+
     "idAppello bigint unsigned primary key AUTO_INCREMENT,"+
-    "nome varchar(10) not null"
+    "nomeAppello varchar(10) not null)"
 )
+
+let creaAppello = function(req){
+    // la richiesta al db arriva con successo!
+    // console.log("RICHIESTA INVIATA AL DB: ",req);
+    sql.connect(function(){
+        var nomeAppello = req.body.nomeAppello;
+        console.log("Connected for add appello! name of appello: "+nomeAppello);
+        sql.query('insert into appello(nomeAppello) values(?)',[nomeAppello],function(error,result){
+            if(error) {
+                console.log(error);
+                return false;
+            }
+            console.log("appello inserted!");
+            return true;
+        });
+    })
+}
+
+function getAllAppelli(data, callback){
+    sql.connect(function(){
+        console.log("Connected for GET appelli!");
+        sql.query('select * from appello',callback,function(error,result){
+            if(error) {
+                callback(error,null);
+            }
+            callback(null,result);
+        });
+    })
+}
+
+module.exports = {appello,creaAppello,getAllAppelli};

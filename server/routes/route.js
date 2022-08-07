@@ -1,3 +1,4 @@
+const { default: axios } = require("axios");
 const express = require("express");
 const services = require("../services/api");
 const route = express.Router();
@@ -11,11 +12,19 @@ route.get("/",(req,res)=>{
 })
 
 /**
- * @Description route visualizza appelli
+ * @Description route visualizza appelli con tutti gli appelli visualizzati nella tabella
  * @method GET/visualizzaAppelli
  */
  route.get("/visualizzaAppelli",(req,res)=>{
-    res.render("visualizzaAppelli");
+    axios.get("http://localhost:3000/visualizzaAppelli/api/getAllAppelli")
+    .then(function(response){
+        console.log(response.data);
+        res.render("visualizzaAppelli",{appelli: response.data});
+    })
+    .catch(err=>{
+        console.log(err);
+        res.send("visualizzaAppelli");
+    })
 })
 
 
@@ -42,9 +51,5 @@ route.get("/",(req,res)=>{
  route.get("/progettisti",(req,res)=>{
     res.render("progettisti");
 })
-
-
-
-
 
 module.exports = route;

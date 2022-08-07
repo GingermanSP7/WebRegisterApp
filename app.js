@@ -18,6 +18,9 @@ app.use("/img",express.static(path.resolve(__dirname,"assets/img")));
 app.use("/js",express.static(path.resolve(__dirname,"assets/js")));
 
 //caricamento delle routes
-app.use("/",require("./server/routes/route"))
+app.use("/",require("./server/routes/route"));
+
+//caricamento delle api
+app.use("/",require("./server/services/api"))
 
 app.listen(3000);
