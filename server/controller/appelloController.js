@@ -35,3 +35,38 @@ exports.getAllAppelli = function(req,res){
     })
     // res.send(result);       // res.send manda il risultato a route.js che si occuperà di mandare i risultati e stamparli nella tabella html
 }
+
+exports.getAppello = function(req,res){
+    appelloModel.getAppello(req,function(err,result){
+        if(!result){
+            response = {
+                error: true,
+                message: "Errore nella query sql"
+            };
+            res.send(response);
+        }
+        console.log("RISULTATO CALLBACK",result);
+        res.send(result);
+    })
+}
+
+exports.updateAppello = function(req,res){
+    if(Object.keys(req.body).length == 0){
+        res.status(400).send({message: "Errore, nessun corpo specificato"});
+        return;
+    }
+    else if(!req.params.idAppello || req.params.idAppello == ""){
+        res.status(204).send({message: "No content"});
+        return;
+    }
+    appelloModel.updateAppello(req,function(err,result){
+        if(!result){
+            response = {
+                error: true,
+                message: "Errore nella query sql"
+            };
+            res.send(err);
+        }
+        res.send(result);
+    })
+}

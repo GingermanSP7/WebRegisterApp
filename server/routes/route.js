@@ -52,4 +52,19 @@ route.get("/",(req,res)=>{
     res.render("progettisti");
 })
 
+/**
+ * @Description route updateAppello
+ * @method PUT/updateAppello
+ */
+route.get("/updateAppello", (req,res)=>{
+    axios.get('http://localhost:3000/visualizzaAppelli/api/getAppello',{params: {id: req.query.idAppello}})  // per ricercare lo specifico appello nel db
+        .then((response)=>{
+            console.log("RISPOSTA: ",response.data);
+            res.render("updateAppello",{appello: response.data})
+        })
+        .catch(err=>{
+            res.send(err);
+        })
+});
+
 module.exports = route;

@@ -34,4 +34,33 @@ function getAllAppelli(data, callback){
     })
 }
 
-module.exports = {appello,creaAppello,getAllAppelli};
+function getAppello(req,callback){
+    sql.connect(function(){
+        console.log("Connected for GET appello.. Searching id:"+req.query.id);       
+        sql.query('select * from appello where idAppello = ?',[req.query.id],function(error,result){
+            if(error) {
+                callback(error,null);
+            }
+            console.log("RESULT: ",result)
+            callback(null,result);
+        });
+    })
+}
+
+function updateAppello(req,callback){
+    const idAppello = req.params.idAppello;
+    const nomeAppelloUpdated = req.body.nomeAppello;
+
+    sql.connect(function(){
+        console.log("Connected for UPDATE Appello");       
+        sql.query('update appello set nomeAppello = ? where idAppello = ?',[nomeAppelloUpdated,idAppello],function(error,result){
+            if(error) {
+                callback(error,null);
+            }
+            console.log("RESULT: ",result)
+            callback(null,result);
+        });
+    })
+}
+
+module.exports = {appello,creaAppello,getAllAppelli,getAppello,updateAppello};
