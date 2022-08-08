@@ -69,3 +69,17 @@ exports.updateAppello = function(req,res){
         res.send(result);
     })
 }
+
+exports.deleteAppello = (req,res)=>{
+    if(!req.params.idAppello){
+        res.status(404).send("No element found");
+        return;
+    }
+    appelloModel.deleteAppello(req,function(err,result){
+        if(!result){
+            console.log(err);
+            res.status(400).send({message:"Errore nella cancellazione dell'elemento"});
+        }
+        res.status(200).send(result);
+    })
+}

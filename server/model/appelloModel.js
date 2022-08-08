@@ -62,4 +62,20 @@ function updateAppello(req,callback){
     })
 }
 
-module.exports = {appello,creaAppello,getAllAppelli,getAppello,updateAppello};
+function deleteAppello(req,callback){
+    const idAppello = req.params.idAppello;
+
+    sql.connect(function(){
+        console.log("Connected for DELETE element with id: ",idAppello);
+        sql.query("delete from appello where idAppello = ?",[idAppello],function(err,result){
+            if(err){
+                callback(err,null);
+                return;
+            }
+            callback(null,result);
+            return;
+        })
+    })
+}
+
+module.exports = {appello,creaAppello,getAllAppelli,getAppello,updateAppello,deleteAppello};

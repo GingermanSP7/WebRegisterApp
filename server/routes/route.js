@@ -66,4 +66,8 @@ route.get("/updateAppello", (req,res)=>{
         })
 });
 
+route.get("/appello",(req,res)=>{
+    res.render("appello");
+})
+
 module.exports = route;

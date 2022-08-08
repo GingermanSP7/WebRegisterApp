@@ -1,16 +1,42 @@
 const sql = require("../database/dbConnection");
 
 let esame = sql.query("create table if not exists esame ("+
-    "idAppello bigint unsigned refereces appello(idAppello),"+
+    "idAppello bigint unsigned REFERENCES appello(idAppello),"+
     "matricola varchar(10) not null,"+
-    "nome varchar(25) not null,"+
-    "cognome varchar(25) not null,"+
-    "maxRisposte int unsigned not null check(maxRisposte>0 and maxRisposte<=30),"+
-    "risposteDate int unsigned not null check(risposteDate>0 and rispsosteDate<=30),"+
+    "maxRisposte int unsigned not null,"+
+    "risposteDate int unsigned not null,"+
     "orale int unsigned not null,"+
     "formula varchar(30),"+
     "votoComplessivo int unsigned not null,"+
-    "stato varchar(20),"
+    "stato varchar(20),"+
+    "foreign key(matricola) references studente(matricola) on delete cascade,"+
+    "foreign key(nome) references studente(nome) on delete cascade,"+
+   " foreign key(cognome) references studente(cognome) on delete cascade,"+
+    "primary key(idAppello,matricola)"+
+   " )"
 )
 
-module.exports = esame;
+function creaEsame(req,callback){
+    sql.connect(function(){
+        const idAppello = req.body.nome;
+        const matricola = req.body.matricola;
+        const maxRisposte = req.body.maxRisposte;
+        const risposteDate = req.body.risposteDate;
+        const orale = req.body.orale;
+        const formula = req.body.formula;
+        const votoComplessivo = req.body.votoComplessivo;
+        const stato = req.body.stato;
+        
+        sql.query("insert into esame(idAppello,matricola,maxRisposte,risposteDate,orale,formula,votoComplessivo,stato) values(?,?,?,?,?,?,?,?)",
+        [idAppello,matricola,maxRisposte,risposteDate,orale,formula,votoComplessivo,stato],function(err,result){
+            if(err){
+                callback(err,null);
+                return;
+            }
+            callback(null,result);
+            return;
+        })
+    })
+}
+
+module.exports = {esame,creaEsame};
