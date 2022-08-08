@@ -1,0 +1,1 @@
+1) Il file di input CSV per importare gli studenti e gli appelli dovranno avere sempre lo stesso nome (tanto verranno sempre salvati in cartelle differenti) 
