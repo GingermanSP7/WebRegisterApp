@@ -2,6 +2,9 @@ const { default: axios } = require("axios");
 const express = require("express");
 const services = require("../services/api");
 const route = express.Router();
+const upload = require("../helper/multer");
+const fs = require("fs");
+const dir = require("../helper/createDir");
 
 /**
  * @Description route homepage
@@ -68,6 +71,12 @@ route.get("/updateAppello", (req,res)=>{
 
 route.get("/appello",(req,res)=>{
     res.render("appello");
-})
+});
+
+// route.use("/uploadFile",dir.createDirForPrenotati);
+route.post("/uploadFile",dir.createDirForPrenotati,upload.array("fileCSV",2),(req,res)=>{
+    // leggi il file degli studenti, aggiungili al Database ed elimina il file(opzionale)
+    res.send("MBAREE");
+});
 
 module.exports = route;
