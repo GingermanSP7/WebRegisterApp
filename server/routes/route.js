@@ -111,7 +111,7 @@ route.post("/uploadFile",dir.createDirForPrenotati,upload.array("fileCSV",2),(re
     .catch((err)=>{
         console.log(err.message);
     })
-    res.send("/appello");
+    
 
 
     // //chiamata per creare l'esame nel db
@@ -124,6 +124,8 @@ route.post("/uploadFile",dir.createDirForPrenotati,upload.array("fileCSV",2),(re
     //     console.log(err);
     //     res.render("appello",{errore: err.message});
     // })
+
+    res.render("appello");
 });
 
 module.exports = route;
