@@ -1,12 +1,10 @@
 const { default: axios } = require("axios");
 const express = require("express");
-const services = require("../services/api");
 const route = express.Router();
 const upload = require("../helper/multer");
-const fs = require("fs");
 const dir = require("../helper/createDir");
 const CSVToJSON = require("csvtojson");
-const { response } = require("express");
+const qs = require("qs");
 
 /**
  * @Description route homepage
@@ -84,32 +82,36 @@ route.post("/uploadFile",dir.createDirForPrenotati,upload.array("fileCSV",2),(re
      * leggere il file per l'esame e salvare i risultati in esame
      */
     
-    //leggere il file per gli studenti prenotati
+    //leggere il file per gli studenti prenotati e salvare gli studenti nel db
     let date = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '').substring(0,10);
     CSVToJSON().fromFile("C:/Users/salva/OneDrive/Desktop/WebRegisterApp2.0/server/helper/appelli/"+date+"/StudentiFakeCSV.csv")
     .then((arr)=>{
         arr.forEach((studente)=>{
-            console.log(studente);
-            axios.post("http://localhost:3000/api/aggiungiStudente",)
+            console.log("STUDENTE: ",studente);        
+            axios({
+                method: 'post',
+                url: 'http://localhost:3000/api/creaStudente',
+                data: qs.stringify({
+                  matricola: `${studente.matricola}`,
+                  nome:  `${studente.nome}`,
+                  cognome:`${studente.cognome}`
+                }), 
+                headers: {
+                  'content-type': 'application/x-www-form-urlencoded; charset=utf-8'
+                }
+              })
             .then((response)=>{
-                console.log("RISPOSTA DAL DB: ",response);
+                console.log("studenti inseriti con successo!")
             })
             .catch((err)=>{
-                console.log(err);
+                console.log(err.message);
             })
         })
-        // axios.post("/api/aggiungiStudente")
-        // .then((response)=>{
-        //     return response
-        // })
-        // .catch((err)=>{
-        //     res.send(err);
-        // })
     })
     .catch((err)=>{
-        console.log(err);
+        console.log(err.message);
     })
-    res.send("ciao");
+    res.send("/appello");
 
 
     // //chiamata per creare l'esame nel db
