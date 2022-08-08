@@ -16,7 +16,7 @@ let creaAppello = function(req){
                 console.log(error);
                 return false;
             }
-            console.log("appello inserted!");
+            console.log("appello inserito!");
             return true;
         });
     })

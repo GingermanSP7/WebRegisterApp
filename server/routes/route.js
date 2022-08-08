@@ -5,6 +5,8 @@ const route = express.Router();
 const upload = require("../helper/multer");
 const fs = require("fs");
 const dir = require("../helper/createDir");
+const CSVToJSON = require("csvtojson");
+const { response } = require("express");
 
 /**
  * @Description route homepage
@@ -73,10 +75,53 @@ route.get("/appello",(req,res)=>{
     res.render("appello");
 });
 
-// route.use("/uploadFile",dir.createDirForPrenotati);
-route.post("/uploadFile",dir.createDirForPrenotati,upload.array("fileCSV",2),(req,res)=>{
-    // leggi il file degli studenti, aggiungili al Database ed elimina il file(opzionale)
-    res.send("MBAREE");
+// L'API viene chiamata dal form di appello.ejs
+route.post("/uploadFile",dir.createDirForPrenotati,upload.array("fileCSV",2),(req,res)=>{   
+    /**
+     * leggere il file per gli studenti prenotati
+     * chiamata per salvare gli studenti nel db
+     * chiamata per creare l'esame nel db
+     * leggere il file per l'esame e salvare i risultati in esame
+     */
+    
+    //leggere il file per gli studenti prenotati
+    let date = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '').substring(0,10);
+    CSVToJSON().fromFile("C:/Users/salva/OneDrive/Desktop/WebRegisterApp2.0/server/helper/appelli/"+date+"/StudentiFakeCSV.csv")
+    .then((arr)=>{
+        arr.forEach((studente)=>{
+            console.log(studente);
+            axios.post("http://localhost:3000/api/aggiungiStudente",)
+            .then((response)=>{
+                console.log("RISPOSTA DAL DB: ",response);
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+        })
+        // axios.post("/api/aggiungiStudente")
+        // .then((response)=>{
+        //     return response
+        // })
+        // .catch((err)=>{
+        //     res.send(err);
+        // })
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+    res.send("ciao");
+
+
+    // //chiamata per creare l'esame nel db
+    // axios.post("/api/creaEsame")
+    // .then((response)=>{
+    //     console.log(response.data);
+    //     res.render("appello",{appello: response.data});
+    // })
+    // .catch((err)=>{
+    //     console.log(err);
+    //     res.render("appello",{errore: err.message});
+    // })
 });
 
 module.exports = route;
