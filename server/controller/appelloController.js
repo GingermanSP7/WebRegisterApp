@@ -41,24 +41,19 @@ exports.getAppello = async function(req,callback){
     })
 }
 
-exports.updateAppello = function(req,res){
+exports.updateAppello = async function(req,callback){
+    console.log("RICHIESTA UPDATE: ",req);
     if(Object.keys(req.body).length == 0){
-        res.status(400).send({message: "Errore, nessun corpo specificato"});
-        return;
+        callback({message: "Errore, corpo mancante"},null);
     }
-    else if(!req.params.idAppello || req.params.idAppello == ""){
-        res.status(204).send({message: "No content"});
-        return;
+    else if(!req.params[0].idAppello || req.params[0].idAppello == ""){
+        callback({message: "Errore, parametri mancanti"},null);
     }
-    appelloModel.updateAppello(req,function(err,result){
-        if(!result){
-            response = {
-                error: true,
-                message: "Errore nella query sql"
-            };
-            res.status(400).send({errore: err});
+    await appelloModel.updateAppello(req,function(err,result){
+        if(err){
+            callback(err,null);
         }
-        res.send(result);
+        callback(null,result);
     })
 }
 

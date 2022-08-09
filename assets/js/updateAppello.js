@@ -31,7 +31,7 @@ $(".updateAppello").submit(function(event){
     console.log("DATA TO UPDATE: ",data);
 
     var request = {
-        "url" : `http://localhost:3000/visualizzaAppelli/api/updateAppello/${data.idAppello}`,
+        "url" : `/updateAppello/edit/${data.idAppello}`,
         "method": "PUT",
         "data": data
     }

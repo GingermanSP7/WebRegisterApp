@@ -38,7 +38,7 @@ async function getAppello(req,callback){
     sql.connect(function(){
         console.log("Connected for GET appello.. Searching id:"+req.query.id);       
         sql.query('select * from appello where idAppello = ?',[req.query.id],function(error,result){
-            if(error) {
+            if(error){
                 callback(error,null);
             }
             callback(null,result);
@@ -46,17 +46,17 @@ async function getAppello(req,callback){
     })
 }
 
-function updateAppello(req,callback){
-    const idAppello = req.params.idAppello;
+async function updateAppello(req,callback){
+    const idAppello = req.params[0].idAppello;
     const nomeAppelloUpdated = req.body.nomeAppello;
 
+    console.log("SONO NEL MODEL: ",idAppello,nomeAppelloUpdated);
     sql.connect(function(){
         console.log("Connected for UPDATE Appello");       
         sql.query('update appello set nomeAppello = ? where idAppello = ?',[nomeAppelloUpdated,idAppello],function(error,result){
             if(error) {
                 callback(error,null);
             }
-            console.log("RESULT: ",result)
             callback(null,result);
         });
     })

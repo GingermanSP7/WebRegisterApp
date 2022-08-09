@@ -66,9 +66,20 @@ route.get("/updateAppello",(req,res)=>{
     });
 });
 
-// route.put("/updateAppello/edit",(req,res)=>{
-
-// })
+route.put("/updateAppello/edit/:idAppello",(req,res)=>{
+    // console.log("SONO NELLA ROUTE PUT: ", req);
+    appelloController.getAppello({query:{id: req.body.idAppello}},function(err,result){
+        if(!result){
+            res.status(400).send(err);
+        }
+        appelloController.updateAppello({params: result, body: req.body},function(err,result){
+            if(!result){
+                res.status(400).send(err);
+            }
+        });
+    });
+    res.render("index");
+})
 
 route.get("/appello",(req,res)=>{
     res.render("appello");
