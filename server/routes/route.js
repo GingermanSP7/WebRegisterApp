@@ -81,6 +81,8 @@ route.post("/uploadFile",dir.createDirForPrenotati,upload.array("fileCSV",2),(re
      * chiamata per creare l'esame nel db
      * leggere il file per l'esame e salvare i risultati in esame
      */
+
+    
     
     //leggere il file per gli studenti prenotati e salvare gli studenti nel db
     let date = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '').substring(0,10);
@@ -114,16 +116,38 @@ route.post("/uploadFile",dir.createDirForPrenotati,upload.array("fileCSV",2),(re
     
 
 
-    // //chiamata per creare l'esame nel db
-    // axios.post("/api/creaEsame")
-    // .then((response)=>{
-    //     console.log(response.data);
-    //     res.render("appello",{appello: response.data});
-    // })
-    // .catch((err)=>{
-    //     console.log(err);
-    //     res.render("appello",{errore: err.message});
-    // })
+    //chiamata per creare leggere l'esame dal csv e salvarlo nel db
+    CSVToJSON().fromFile("C:/Users/salva/OneDrive/Desktop/WebRegisterApp2.0/server/helper/appelli/"+date+"/fakeAppelloCSV.csv")
+    .then((arr)=>{
+        arr.forEach((esame)=>{
+            console.log("ESAME: ",esame);        
+            axios({
+                method: 'post',
+                url: 'http://localhost:3000/api/creaEsame',
+                data: qs.stringify({
+                    idAppello: `${esame.idAppello}`,
+                    matricola: `${esame.matricola}`,
+                    maxRisposte: `${esame.maxRisposte}`,
+                    risposteDate: `${esame.risposteDate}`,
+                    maxVotoScritto: `${esame.maxVotoScritto}`,
+                    formula: `${esame.formula}`,
+                    orale: `${esame.orale}`,
+                    laboratorio: `${esame.laboratorio}`,
+                    votoComplessivo: `${esame.votoComplessivo}`,
+                    stato:  `${esame.stato}`
+                }), 
+                headers: {
+                  'content-type': 'application/x-www-form-urlencoded; charset=utf-8'
+                }
+              })
+            .then((response)=>{
+                console.log("esame inserito con successo!")
+            })
+            .catch((err)=>{
+                console.log(err.message);
+            })
+        })
+    })
 
     res.render("appello");
 });

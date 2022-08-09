@@ -1,1 +1,2 @@
 1) Il file di input CSV per importare gli studenti e gli appelli dovranno avere sempre lo stesso nome (tanto verranno sempre salvati in cartelle differenti) 
+2) Per registrare gli esami nel db bisogna vedere qual'è l'id dell'appello e scriverlo nel file csv
