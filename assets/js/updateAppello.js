@@ -21,9 +21,7 @@
 $(".updateAppello").submit(function(event){
     event.preventDefault();
 
-    console.log("Sono in JS!!");
     var unindexed_array = $(this).serializeArray();
-    console.log("ARRAY: ",unindexed_array);
     var data = {};
 
     $.map(unindexed_array, function(n,i){

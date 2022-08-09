@@ -1,4 +1,5 @@
 const { default: axios } = require("axios");
+const appelloController = require("../controller/appelloController");
 const express = require("express");
 const route = express.Router();
 const upload = require("../helper/multer");
@@ -19,14 +20,11 @@ route.get("/",(req,res)=>{
  * @method GET/visualizzaAppelli
  */
  route.get("/visualizzaAppelli",(req,res)=>{
-    axios.get("http://localhost:3000/visualizzaAppelli/api/getAllAppelli")
-    .then(function(response){
-        console.log(response.data);
-        res.render("visualizzaAppelli",{appelli: response.data});
-    })
-    .catch(err=>{
-        console.log(err);
-        res.send("visualizzaAppelli");
+    appelloController.getAllAppelli(req,function(err,result){
+        if(!result){
+            res.status(400).send(err);
+        }
+        res.render("visualizzaAppelli",{appelli: result})
     })
 })
 
@@ -59,15 +57,18 @@ route.get("/",(req,res)=>{
  * @Description route updateAppello
  * @method PUT/updateAppello
  */
-route.get("/updateAppello", (req,res)=>{
-    axios.get('http://localhost:3000/visualizzaAppelli/api/getAppello',{params: {id: req.query.idAppello}})  // per ricercare lo specifico appello nel db
-        .then((response)=>{
-            res.render("updateAppello",{appello: response.data})
-        })
-        .catch(err=>{
-            res.send(err);
-        })
+route.get("/updateAppello",(req,res)=>{
+    appelloController.getAppello({query: {id: req.query.idAppello}},function(err,result){
+        if(!result){
+            res.status(400).send(err);
+        }
+        res.render("updateAppello",{appello: result});
+    });
 });
+
+// route.put("/updateAppello/edit",(req,res)=>{
+
+// })
 
 route.get("/appello",(req,res)=>{
     res.render("appello");

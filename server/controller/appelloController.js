@@ -1,3 +1,4 @@
+const { resolveInclude } = require("ejs");
 const { response } = require("express");
 const sql = require("../database/dbConnection");
 const appelloModel = require("../model/appelloModel");
@@ -22,30 +23,21 @@ exports.createAppello = ((req,res)=>{
     res.redirect("/visualizzaAppelli");
 });
 
-exports.getAllAppelli = function(req,res){
+exports.getAllAppelli = function(req,callback){
     appelloModel.getAllAppelli(req.body,function(err,result){
         if(!result){
-            response = {
-                error: true,
-                message: "Errore nella query sql"
-            };
-            res.send(response);
+           callback(err,null);
         }
-        res.send(result);
+        callback(null,result);
     })
-    // res.send(result);       // res.send manda il risultato a route.js che si occuperà di mandare i risultati e stamparli nella tabella html
 }
 
-exports.getAppello = function(req,res){
-    appelloModel.getAppello(req,function(err,result){
+exports.getAppello = async function(req,callback){
+    await appelloModel.getAppello(req,function(err,result){
         if(!result){
-            response = {
-                error: true,
-                message: "Errore nella query sql"
-            };
-            res.send(response);
+            callback(err,null);
         }
-        res.send(result);
+        callback(null,result);
     })
 }
 
@@ -64,7 +56,7 @@ exports.updateAppello = function(req,res){
                 error: true,
                 message: "Errore nella query sql"
             };
-            res.send(err);
+            res.status(400).send({errore: err});
         }
         res.send(result);
     })

@@ -34,7 +34,7 @@ function getAllAppelli(data, callback){
     })
 }
 
-function getAppello(req,callback){
+async function getAppello(req,callback){
     sql.connect(function(){
         console.log("Connected for GET appello.. Searching id:"+req.query.id);       
         sql.query('select * from appello where idAppello = ?',[req.query.id],function(error,result){
