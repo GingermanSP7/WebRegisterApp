@@ -2,10 +2,12 @@ const express = require("express");
 const morgan = require("morgan");
 const bodyparser = require("body-parser");
 const path = require("path");
+const cors = require("cors");
 
 const app = express();
 
 app.use(morgan("tiny"));
+app.use(cors({origin: '*'}));
 
 app.use(bodyparser.urlencoded({extended:true}));
 
@@ -23,4 +25,4 @@ app.use("/",require("./server/routes/route"));
 //caricamento delle api
 app.use("/",require("./server/services/api"))
 
-app.listen(3000);
+app.listen(3001);

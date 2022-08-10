@@ -1,6 +1,6 @@
 const studenteModel = require("../model/studenteModel");
 
-exports.addStudente = ((req,res)=>{
+exports.addStudente = ((req,callback)=>{
     console.log("RICHIESTA ARRIVATA AL CONTROLLER: ",req.body);
     if(Object.keys(req.body).length == 0){                   
         res.status(400).send({message: "Content can't be empty"});
@@ -8,11 +8,10 @@ exports.addStudente = ((req,res)=>{
     }
     studenteModel.addStudente(req,function(err,result){
         if(!result){
-            res.send(err);
-            return;
+            callback(err,null);
         }
         console.log("Studente aggiunto correttamente!")
-        res.send(result);
+        callback(null,result);
     })
 })
 

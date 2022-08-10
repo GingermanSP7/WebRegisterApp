@@ -2,17 +2,17 @@
 <div id="containerAppello">
     <h1>Appello</h1>
     <div id="divFormAppello">
-        <form action="/uploadFile" method="post" id="formAppello" enctype="multipart/form-data">
+        <form id="formAppello" enctype="multipart/form-data">
             <div>
                 <b>Studenti prenotati (csv): </b>
                 <input type="file" name="fileCSV" id="fileCSV" required>
             </div>
             <div>
                 <b>Esiti (csv): </b>
-                <input type="file" name="fileCSV" id="fileCSV" required>
+                <input type="file" name="fileCSV" id="file2" required>
             </div>
             <div>
-                <input type="submit" name="sbmt" id="sbmtCSV" value="Invia">
+                <input type="button" name="sbmt" id="sbmtCSV" value="Invia" onclick="sendFile()">
             </div>
         </div>
 
