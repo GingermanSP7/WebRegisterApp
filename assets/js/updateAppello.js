@@ -1,23 +1,3 @@
-// var numeroStudentiPrenotati = 0;
-// const btn_submit = document.getElementById("submitData").addEventListener("click",()=>{
-//     Papa.parse(document.getElementById("uploadCSV").files[0],
-//     {
-//         download: true,
-//         header:true,
-//         skipEmptyLines: true,
-//         complete: function(results){
-//             console.log(results);
-//             numeroStudentiPrenotati = results.data.length;
-
-//             //DEVE FARE UNA CHIAMATA POST PER INSERIRE L'APPELLO NEL DB E DOPO FARLO COMPARIRE NELLA LISTA DEGLI APPELLI CREATI
-//         }
-//     })
-// });
-
-// $("#formAddAppello").submit(function(event){
-//     alert("Appello Inserito con successo!")
-// });
-
 $(".updateAppello").submit(function(event){
     event.preventDefault();
 
@@ -60,4 +40,3 @@ if(window.location.pathname == "/visualizzaAppelli"){
         }
     })
 }
-

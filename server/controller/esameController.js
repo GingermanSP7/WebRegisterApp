@@ -19,3 +19,13 @@ exports.getAllEsame = (req,callback)=>{
         callback(null,result);
     })
 }
+
+exports.getCountEsame = (req,res)=>{
+    esameModel.getCountEsame(req,function(err,result){
+        if(!result){
+            res.status(400).send(err);
+            return;
+        }
+        res.send(result);
+    })
+}

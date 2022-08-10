@@ -42,4 +42,16 @@ function getAllEsame(req,callback){
     })
 }
 
-module.exports = {esame,creaEsame,getAllEsame};
+function getCountEsame(req,callback){
+    sql.connect(function(){
+        sql.query("select count(*) as res from esame",function(err,result){
+            if(!result){
+                callback(err,null);
+            }
+            console.log("RISULTATO NEL MODEL: ",result);
+            callback(null,result);
+        })
+    })
+}
+
+module.exports = {esame,creaEsame,getAllEsame,getCountEsame};
