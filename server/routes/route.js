@@ -1,11 +1,9 @@
-const { default: axios } = require("axios");
 const appelloController = require("../controller/appelloController");
 const express = require("express");
 const route = express.Router();
 const upload = require("../helper/multer");
 const dir = require("../helper/createDir");
 const CSVToJSON = require("csvtojson");
-const qs = require("qs");
 
 /**
  * @Description route homepage
