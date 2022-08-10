@@ -10,7 +10,6 @@ exports.addStudente = ((req,callback)=>{
         if(!result){
             callback(err,null);
         }
-        console.log("Studente aggiunto correttamente!")
         callback(null,result);
     })
 })

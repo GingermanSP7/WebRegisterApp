@@ -1,15 +1,18 @@
 <%- include ("includes/_header.ejs") %>
 <div id="containerAppello">
     <h1>Appello</h1>
+    <% if(typeof errorMsg !== 'undefined'){ %>
+        <p id="msgError"><%= errMsg %></p>    
+    <% } %>
     <div id="divFormAppello">
         <form id="formAppello" enctype="multipart/form-data">
             <div>
                 <b>Studenti prenotati (csv): </b>
-                <input type="file" name="fileCSV" id="fileCSV" required>
+                <input type="file" name="fileCSV" id="fileCSV" accept=".csv" required>
             </div>
             <div>
                 <b>Esiti (csv): </b>
-                <input type="file" name="fileCSV" id="file2" required>
+                <input type="file" name="fileCSV" id="file2" accept=".csv" required>
             </div>
             <div>
                 <input type="button" name="sbmt" id="sbmtCSV" value="Invia" onclick="sendFile()">

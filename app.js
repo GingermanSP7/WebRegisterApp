@@ -25,4 +25,4 @@ app.use("/",require("./server/routes/route"));
 //caricamento delle api
 app.use("/",require("./server/services/api"))
 
-app.listen(3001);
+app.listen(3000);
