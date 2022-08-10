@@ -97,7 +97,7 @@ route.post("/uploadFile", (req, res) => {
     CSVToJSON().fromFile("C:/Users/salva/OneDrive/Desktop/WebRegisterApp2.0/server/helper/studPrenotati/" + nomeFile_studPrenotati)
         .then((arr) => {
             arr.forEach((studente) => {
-                console.log(studente);
+                //console.log(studente);
                 studenteController.addStudente({
                     body: {
                         matricola: `${studente.Matricola}`,
@@ -122,38 +122,38 @@ route.post("/uploadFile", (req, res) => {
         })
 
 
-    // let nomeFile_appello = req.body.nomeFile[1];
-    // CSVToJSON().fromFile(":/Users/salva/OneDrive/Desktop/WebRegisterApp2.0/server/helper/studPrenotati/" + nomeFile_appello)
-    //     .then((arr) => {
-    //         arr.forEach((esame) => {
-    //             console.log("ESAME: ", esame);
-    //             esameController.creaEsame({
-    //                 body: {
-    //                     idAppello: `${esame.idAppello}`,
-    //                     matricola: `${esame.matricola}`,
-    //                     maxRisposte: `${esame.maxRisposte}`,
-    //                     risposteDate: `${esame.risposteDate}`,
-    //                     maxVotoScritto: `${esame.maxVotoScritto}`,
-    //                     formula: `${esame.formula}`,
-    //                     orale: `${esame.orale}`,
-    //                     laboratorio: `${esame.laboratorio}`,
-    //                     votoComplessivo: `${esame.votoComplessivo}`,
-    //                     stato: `${esame.stato}`
-    //                 }
-    //             }, function (err, result) {
-    //                 if (!result) {
-    //                     console.log(err);
-    //                 }
-    //                 console.log("DONE Esame!")
-    //             })
-    //         })
-    //     })
-    //     .then((response) => {
-    //         console.log("esame inserito con successo!")
-    //     })
-    //     .catch((err) => {
-    //         console.log(err.message);
-    //     })
+    let nomeFile_appello = req.body.nomeFile[1];
+    console.log("NOME FILE APPELLO: ",nomeFile_appello);
+    CSVToJSON().fromFile("C:/Users/salva/OneDrive/Desktop/WebRegisterApp2.0/server/helper/appelli/"+nomeFile_appello)
+        .then((arr) => {
+            arr.forEach((esame) => {
+                console.log("ESAME: ", esame);
+                esameController.creaEsame({
+                    body: {
+                        idAppello: `${esame.idAppello}`,
+                        matricola: `${esame.matricola}`,
+                        maxRisposte: `${esame.maxRisposte}`,
+                        risposteDate: `${esame.risposteDate}`,
+                        maxVotoScritto: `${esame.maxVotoScritto}`,
+                        formula: `${esame.formula}`,
+                        orale: `${esame.orale}`,
+                        laboratorio: `${esame.laboratorio}`,
+                        votoComplessivo: `${esame.votoComplessivo}`,
+                        stato: `${esame.stato}`
+                    }
+                }, function (err, result) {
+                    if (!result) {
+                        console.log(err);
+                    }
+                })
+            })
+        })
+        .then((response) => {
+            console.log("esame inserito con successo!")
+        })
+        .catch((err) => {
+            console.log(err.sqlMessage);
+        })
 });
 
 module.exports = route;
