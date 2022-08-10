@@ -1,2 +1,6 @@
-1) I file csv devono essere disposti in cartelle definitive prima che vengono caricati sall'applicazione.
+🚨🚨🚨 ---- PRIMA DI AVVIARE L'APPLICAZIONE ---- 🚨🚨🚨
+
+💡 Cambiare il pathname di riferimento per la locazione dei file csv
+
+💡 I file csv devono essere disposti in cartelle definitive prima che vengono caricati sall'applicazione.
 Un modo per poter separare i maniera definitiva i file csv riguardante gli studenti prenotati e gli appelli è quello di inserire il file degli studenti in una directory apposita e ridenominare il file come "stud_dataAppello.csv" (un esempio per contraddistinguere tutti i file situati nella stessa cartella). 
