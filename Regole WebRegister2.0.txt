@@ -1,2 +1,13 @@
-1) Il file di input CSV per importare gli studenti e gli appelli dovranno avere sempre lo stesso nome (tanto verranno sempre salvati in cartelle differenti) 
-2) Per registrare gli esami nel db bisogna vedere qual'è l'id dell'appello e scriverlo nel file csv
+🚨🚨🚨 ---- PRIMA DI AVVIARE L'APPLICAZIONE ---- 🚨🚨🚨
+
+💡 Cambiare il pathname di riferimento per la locazione dei file csv
+
+💡 I file csv devono essere disposti in cartelle definitive prima che vengono caricati sall'applicazione.
+Un modo per poter separare i maniera definitiva i file csv riguardante gli studenti prenotati e gli appelli è quello di inserire il file degli studenti in una directory apposita e ridenominare il file come "stud_dataAppello.csv" (un esempio per contraddistinguere tutti i file situati nella stessa cartella). 
+
+💡 I valori dei file csv devono essere separati SOLAMENTE dalla VIRGOLA (non dal ; che contrassegna le colonne nel file excel).
+
+💡 La riga header supportate nel file degli studenti prenotati deve essere definira in tale modo (stessa digitura):
+- Nome, Cognome, Matricola, cf, codCdsIscr, Regolamento, cfu
+
+Possono essere scambiati di posto nel file csv, ma deve essere rispettato il nome con la prima lettara maiuscola (o minuscola nei casi come: cf, codCdsIscr e cfu).
