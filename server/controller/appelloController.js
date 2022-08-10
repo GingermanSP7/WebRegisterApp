@@ -1,6 +1,3 @@
-const { resolveInclude } = require("ejs");
-const { response } = require("express");
-const sql = require("../database/dbConnection");
 const appelloModel = require("../model/appelloModel");
 
 exports.createAppello = ((req,res)=>{

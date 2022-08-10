@@ -80,7 +80,16 @@ route.put("/updateAppello/edit/:idAppello", (req, res) => {
 })
 
 route.get("/appello", (req, res) => {
-    res.render("appello");
+    const request = {
+        body: req.query.idAppello
+    }
+    esameController.getAllEsame(request,function(err,result){
+        if(!result){
+            res.status(400).send(err);
+        }
+        console.log("RESULT: ",result);
+        res.render("appello",{esame: result});
+    })
 });
 
 // L'API viene chiamata dal form di appello.ejs

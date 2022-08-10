@@ -20,11 +20,11 @@
         <table>
             <thead id="thead">
                 <tr class="trAppello">
-                    <th>ID</th>
+                    <th>ID_Appello</th>
                     <th>Matricola</th>
                     <th>Scritto</th>
                     <th>Max</th>
-                    <th>Voto Scritto(Max 22)</th>
+                    <th class="fontSize15">Voto Scritto(Max 22)</th>
                     <th>Formula</th>
                     <th>Orale</th>
                     <th>Laboratorio</th>
@@ -32,8 +32,22 @@
                     <th>Stato</th>
                 </tr>  
             </thead>
-            <tbody class="tbodyAppello">
-                
+            <tbody id="tbodyAppello">
+                <%for(var i=0; i<esame.length; i++){ %>
+                    <tr class="rows">
+                        <td><%= esame[i].idAppello %></td>
+                        <td><%= esame[i].matricola %></td>
+                        <td><%= esame[i].maxRisposte %></td>
+                        <td><%= esame[i].risposteDate %></td>
+                        <td><%= esame[i].maxVotoScritto %></td>
+                        <td><%= esame[i].formula %></td>
+                        <td><%= esame[i].orale %></td>
+                        <td><%= esame[i].laboratorio %></td>
+                        <td><%= esame[i].votoComplessivo %></td>
+                        <td><%= esame[i].stato %></td>
+                        </div>
+                    </tr>
+                    <%} %>
             </tbody>
         </table>
     </div>

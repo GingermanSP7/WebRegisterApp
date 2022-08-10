@@ -65,10 +65,32 @@ table{
 }
 
 #thead .trAppello{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
     color: #f7f8f3;
-    padding: 10px;
-    border-radius: 5px;
+}
+
+#tbodyAppello tr, #thead tr{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    height: 50px;
+    font-size: 20px;
+    color: #f7f8f3;
+    border: 2px solid #FCB91C;
+}
+
+#thead tr th{
+    justify-self: center;
+    align-self: center;
+}
+
+#tbodyAppello tr td{
+    justify-self: center;
+    align-self: center;
+}
+
+.fontSize15{
+    font-size: 15px;
 }

@@ -1,6 +1,6 @@
 const sql = require("../database/dbConnection");
 
-let esame = sql.query("create table if not exists esame(idAppello bigint unsigned, matricola varchar(10) not null, maxRisposte int unsigned not null, risposteDate int unsigned not null, maxVotoScritto int unsigned not null, formula varchar(30), orale int unsigned not null, laboratorio int unsigned not null, votoComplessivo int unsigned not null,stato varchar(20),foreign key(matricola) references studente(matricola) on delete cascade,foreign key (idAppello) references appello(idAppello) on delete cascade,primary key(idAppello,matricola));")
+let esame = sql.query("create table if not exists esame(idAppello bigint unsigned, matricola varchar(10) not null, maxRisposte int unsigned not null, risposteDate int unsigned not null, maxVotoScritto int unsigned not null, formula varchar(30), orale int unsigned not null, laboratorio int unsigned not null, votoComplessivo varchar(3) not null,stato varchar(20),foreign key(matricola) references studente(matricola) on delete cascade,foreign key (idAppello) references appello(idAppello) on delete cascade,primary key(idAppello,matricola));")
 
 function creaEsame(req,callback){
     sql.connect(function(){
@@ -27,4 +27,19 @@ function creaEsame(req,callback){
     })
 }
 
-module.exports = {esame,creaEsame};
+function getAllEsame(req,callback){
+
+    sql.connect(function(){
+        console.log("RICHIESTA NEL MODEL: ",req);
+        const idAppello = req.body;
+        console.log("Ricerco l'esame con idAppello: ",idAppello);        
+        sql.query("select * from esame where idAppello = ?",[idAppello],function(err,result){
+            if(!result){
+                callback(err,null);
+            }
+            callback(null,result);
+        })
+    })
+}
+
+module.exports = {esame,creaEsame,getAllEsame};
