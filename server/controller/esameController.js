@@ -55,3 +55,17 @@ exports.updateEsame = (req,callback)=>{
         callback(null,result);
     })
 }
+
+exports.deleteEsame = (req,res)=>{
+    if(Object.keys(req.query).length == 0){                   
+        callback({msg: "Errore, nessun parametro passato!"},null);
+        return;
+    }
+    esameModel.deleteEsame(req,function(err,result){
+        if(!result){
+            res.status(400).send(err);
+            return;
+        }
+        res.status(200).send(result);
+    })
+}

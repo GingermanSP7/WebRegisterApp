@@ -28,7 +28,7 @@ if(window.location.pathname == "/visualizzaAppelli"){
         var id = $(this).attr("data-id");
 
         var request = {
-            "url" : `http://localhost:3000/visualizzaAppelli/api/deleteAppello/${id}`,
+            "url" : `visualizzaAppelli/api/deleteAppello/${id}`,
             "method": "DELETE",
         }
 

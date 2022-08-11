@@ -96,4 +96,20 @@ function updateEsame(req,callback){
     })
 }
 
-module.exports = {esame,creaEsame,getAllEsame,getCountEsame,getEsame,updateEsame};
+function deleteEsame(req,callback){
+    sql.connect(function(){
+        let idAppello = req.query.idAppello;
+        let matricola = req.query.matricola;
+
+        console.log("Connesso al DB, ELIMINO esame: ",idAppello+" -- "+matricola);
+        sql.query("delete from esame where idAppello = ? and matricola = ?",[idAppello,matricola],function(err,result){
+            if(!result){
+                callback(err,null);
+                return;
+            }
+            callback(null,result);
+        })
+    })
+}
+
+module.exports = {esame,creaEsame,getAllEsame,getCountEsame,getEsame,updateEsame,deleteEsame};
