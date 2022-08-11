@@ -48,10 +48,52 @@ function getCountEsame(req,callback){
             if(!result){
                 callback(err,null);
             }
-            console.log("RISULTATO NEL MODEL: ",result);
             callback(null,result);
         })
     })
 }
 
-module.exports = {esame,creaEsame,getAllEsame,getCountEsame};
+function getEsame(req,callback){
+    sql.connect(function(){
+        let idAppello = req.body.idAppello;
+        let matricola = req.body.matricola;
+
+        console.log("Connesso al DB, ricerca esame: ",idAppello+" -- "+matricola);
+        sql.query("select * from esame where idAppello = ? and matricola = ?",[idAppello,matricola],function(err,result){
+            if(!result){
+                callback(err,null);
+                return;
+            }
+            callback(null,result);
+        })
+    })
+}
+
+function updateEsame(req,callback){
+    sql.connect(function(){
+        let idAppello = req.body.idAppello;
+        let matricola = req.body.matricola;
+        let risposteDate = req.body.votoScritto;
+        let maxRisposte = req.body.maxDomande;
+        let maxVotoScritto = req.body.maxVotoScritto;
+        let formula = req.body.formula;
+        let orale = req.body.orale;
+        let laboratorio = req.body.laboratorio;
+        let votoComplessivo = req.body.votoComplessivo;
+        let stato = req.body.stato;
+
+
+        console.log("Connesso al DB, UPDTAE esame: ",idAppello+" -- "+matricola);
+        sql.query("update esame set matricola = ?, risposteDate = ?, maxRisposte = ?, maxVotoScritto = ?, formula = ?, orale = ?, laboratorio = ?, votoComplessivo = ?, stato = ?",
+        [matricola,risposteDate,maxRisposte,maxVotoScritto,formula,orale,laboratorio,votoComplessivo,stato],
+        function(err,result){
+            if(!result){
+                callback(err,null);
+                return;
+            }
+            callback(null,result);
+        })
+    })
+}
+
+module.exports = {esame,creaEsame,getAllEsame,getCountEsame,getEsame,updateEsame};

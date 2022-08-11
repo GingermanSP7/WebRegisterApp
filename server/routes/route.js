@@ -92,6 +92,32 @@ route.get("/appello", (req, res) => {
     })
 });
 
+route.get("/updateEsame",(req,res)=>{
+    const request = {
+        body: {
+            idAppello: req.query.idAppello,
+            matricola: req.query.matricola
+        }
+    }
+    esameController.getEsame(request,function(err,result){
+        if(!result){
+            console.log("Errore nella route!");
+            res.status(400).send(err);
+        }
+        res.status(200).render("updateEsame",{esame: result});
+    });
+})
+
+route.put("/updateEsame/edit",(req,res)=>{
+    esameController.updateEsame(req,function(err,result){
+        if(!result){
+            console.log("Errore nella route!");
+            res.status(400).send(err);
+        }
+        res.status(200).send("OK!");
+    })
+})
+
 // L'API viene chiamata dal form di appello.ejs
 route.post("/uploadFile", (req, res) => {
     /**

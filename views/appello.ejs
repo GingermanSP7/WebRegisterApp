@@ -14,7 +14,8 @@
             <div>
                 <input type="button" name="sbmt" id="sbmtCSV" value="Invia" onclick="sendFile()">
             </div>
-        </div>
+        </form>
+    </div>
 
     <div id="tableAppello_container">
         <table>
@@ -22,14 +23,15 @@
                 <tr class="trAppello">
                     <th>ID_Appello</th>
                     <th>Matricola</th>
-                    <th>Scritto</th>
+                    <th>Risp. Corrette</th>
                     <th>Max</th>
-                    <th class="fontSize15">Voto Scritto(Max 22)</th>
+                    <th class="fontSize15">Voto Scritto</th>
                     <th>Formula</th>
                     <th>Orale</th>
                     <th>Laboratorio</th>
                     <th>Voto_Complessivo</th>
                     <th>Stato</th>
+                    <th>Azioni</th>
                 </tr>  
             </thead>
             <tbody id="tbodyAppello">
@@ -37,14 +39,22 @@
                     <tr class="rows">
                         <td><%= esame[i].idAppello %></td>
                         <td><%= esame[i].matricola %></td>
-                        <td><%= esame[i].maxRisposte %></td>
                         <td><%= esame[i].risposteDate %></td>
+                        <td><%= esame[i].maxRisposte %></td>
                         <td><%= esame[i].maxVotoScritto %></td>
                         <td><%= esame[i].formula %></td>
                         <td><%= esame[i].orale %></td>
                         <td><%= esame[i].laboratorio %></td>
                         <td><%= esame[i].votoComplessivo %></td>
                         <td><%= esame[i].stato %></td>
+                        <td>
+                            <button class="btn_action edit" title="modifica">
+                                <a href="/updateEsame?idAppello=<%=esame[i].idAppello%>&matricola=<%=esame[i].matricola%>"><box-icon name='edit-alt' type='solid' color='#FCB91C' ></box-icon></a>
+                            </button>
+                            <button class="btn_action remove" title="cancella">
+                                <a data-id="#" class="delete"><box-icon name='x' color='#f7444e' ></box-icon></a>
+                            </button>
+                        </td>
                         </div>
                     </tr>
                     <%} %>

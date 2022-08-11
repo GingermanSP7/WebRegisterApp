@@ -29,3 +29,31 @@ exports.getCountEsame = (req,res)=>{
         res.send(result);
     })
 }
+
+exports.getEsame = (req,callback)=>{
+    if(Object.keys(req.body).length == 0){                   
+        callback({msg: "Errore, nessun body passato!"},null);
+        return;
+    }
+    esameModel.getEsame(req,function(err,result){
+        if(!result){
+            callback(err,null);
+            return;
+        }
+        callback(null,result);
+    })
+}
+
+exports.updateEsame = (req,callback)=>{
+    if(Object.keys(req.body).length == 0){                   
+        callback({msg: "Errore, nessun body passato!"},null);
+        return;
+    }
+    esameModel.updateEsame(req,function(err,result){
+        if(!result){
+            callback(err,null);
+            return;
+        }
+        callback(null,result);
+    })
+}
