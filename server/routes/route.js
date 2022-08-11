@@ -184,7 +184,7 @@ route.post("/uploadFile", (req, res) => {
             })
         })
         .then((response) => {
-            console.log("esame inserito con successo!")
+            console.log(response)
         })
         .catch((err) => {
             console.log(err.sqlMessage);
