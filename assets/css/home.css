@@ -121,6 +121,10 @@ nav{
     align-items: center;
 }
 
+#g_tesisti>h1{
+    font-size: 35px;
+}
+
 #div_counter{
     border: 1px solid #f7f8f3;
     border-radius: 5px;
