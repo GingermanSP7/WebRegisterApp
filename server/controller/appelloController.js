@@ -7,13 +7,6 @@ exports.createAppello = ((req,res)=>{
         return;
     }
     result = appelloModel.creaAppello(req);
-    /*
-        ** BUG **
-        console.log("RISULTATO TORNATO DAL DB: ",result);
-        *   Il risultato della query è 'undefined' perchè in debug viene
-            eseguito prima il log e dopo la query.
-            Per cui non posso controllare se la query è stata eseguita con successo
-     */
     if(result == true){
         res.redirect("/visualizzaAppelli")
     }
