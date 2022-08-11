@@ -58,6 +58,8 @@ h1{
     justify-self: center;
     align-self: center;
     grid-row-start: 3;
+    overflow: auto;
+    border: 1px solid #f7f8f3;
 }
 
 table{
@@ -66,19 +68,18 @@ table{
 
 #thead .trAppello{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
     color: #f7f8f3;
 }
 
 #tbodyAppello tr, #thead tr{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
     height: 50px;
     font-size: 20px;
     color: #f7f8f3;
-    border: 2px solid #FCB91C;
 }
 
 #thead tr th{
@@ -89,8 +90,6 @@ table{
 #tbodyAppello tr td{
     justify-self: center;
     align-self: center;
+    font-size: 16px;
 }
 
-.fontSize15{
-    font-size: 15px;
-}
