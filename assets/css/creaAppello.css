@@ -2,7 +2,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 200px auto;
+    grid-template-rows: 200px 0.5fr;
     align-items: center;
 }
 
