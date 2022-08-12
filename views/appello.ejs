@@ -16,16 +16,64 @@
             </div>
         </form>
     </div>
-
+    <div id="c_addEsame">
+        <button  id="btn_addEsame">Aggiungi Esame</button>
+        <button id="btn_removeForm">-</button>
+    </div>
+    <div id="c_formAddEsame">
+        <form action="#" method="POST" id="formUpdateEsame" class="updateEsame displayNone">
+            <div id="container_Esame">
+                <label for="matricola" class="labelUpdateEsame">
+                    <span class="span">Matricola:</span> 
+                    <input type="text" name="matricola" id="matricola" class="in_esame" placeholder="Matricola" required>
+                </label>
+                <label for="votoScritto" class="labelUpdateEsame">
+                    <span class="span">Risposte Date:</span> 
+                    <input type="text" name="votoScritto" id="votoScritto" class="in_esame" placeholder="Risposte Date" required>
+                </label>
+                <label for="maxDomande" class="labelUpdateEsame">
+                    <span class="span">Max Domande Esame:</span> 
+                    <input type="text" name="maxDomande" id="maxDomande" class="in_esame" placeholder="N. Domande" required>
+                </label>
+                <label for="maxVotoScritto" class="labelUpdateEsame">
+                    <span class="span">Max voto scritto:</span> 
+                    <input type="text" name="maxVotoScritto" id="maxVotoScritto" class="in_esame" placeholder="Max voto scritto" required>
+                </label>
+                <label for="formula" class="labelUpdateEsame">
+                    <span class="span">Formula:</span> 
+                    <input type="text" name="formula" id="formula" class="in_esame" placeholder="Formula" required>
+                </label>
+                <label for="orale" class="labelUpdateEsame">
+                    <span class="span">Orale:</span> 
+                    <input type="text" name="orale" id="orale" class="in_esame" placeholder="Voto Orale" required>
+                </label>
+                <label for="laboratorio" class="labelUpdateEsame">
+                    <span class="span">Laboratorio:</span> 
+                    <input type="text" name="laboratorio" id="laboratorio" class="in_esame" placeholder="Voto Laboratorio" required>
+                </label>
+                <label for="votoComplessivo" class="labelUpdateEsame">
+                    <span class="span">Voto Complessivo:</span> 
+                    <input type="text" name="votoComplessivo" id="votoComplessivo" class="in_esame" placeholder="Voto Complessivo" required>
+                </label>
+                <label for="stato" class="labelUpdateEsame">
+                    <span class="span">Stato:</span> 
+                    <input type="text" name="stato" id="stato" class="in_esame" placeholder="Stato esame" required>
+                </label>
+                <div id="c_sbmtEsame">            
+                    <input type="submit" name="submitData" id="submitData" value="Invia">
+                </div>
+            </div>
+        </form>
+    </div>
     <div id="tableAppello_container">
         <table>
             <thead id="thead">
                 <tr class="trAppello">
                     <th>ID_Appello</th>
                     <th>Matricola</th>
-                    <th>Risp. Corrette</th>
+                    <th>Risp. Date</th>
                     <th>Max</th>
-                    <th class="fontSize15">Voto Scritto</th>
+                    <th class="fontSize15">Max Voto Scritto</th>
                     <th>Formula</th>
                     <th>Orale</th>
                     <th>Laboratorio</th>

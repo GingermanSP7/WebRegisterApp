@@ -42,6 +42,12 @@ $("#delEsame").on("click",function(event){
     
 })
 
+$("#btn_addEsame").on("click",function(){
+    $("#c_formAddEsame").css({"display":"flex"});
+    $("#btn_removeForm").css({"display":"block"});
+})
 
-
-//api/deleteEsame?idAppello=${data.idAppello}&matricola=${data.matricola}
+$("#btn_removeForm").on("click",function(){
+    $("#c_formAddEsame").css({"display":"none"});
+    $("#btn_removeForm").css({"display":"none"});
+})

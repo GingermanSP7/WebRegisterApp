@@ -1,7 +1,7 @@
 #containerAppello{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 1fr 0.2fr auto 1fr;
     row-gap: 30px;
     margin-top: 30px;
 }
@@ -11,6 +11,7 @@ h1{
     font-size: 60px;
     justify-self: center;
     align-self: center;
+    grid-row-start: 1;
 }
 
 #divFormAppello{
@@ -18,6 +19,7 @@ h1{
     justify-content: center;
     align-items: center;
     width: 100%;
+    grid-row-start: 2;
 }
 
 #formAppello{
@@ -50,16 +52,34 @@ h1{
     border-radius: 5px;
 }
 
+#c_addEsame{
+    width: 95%;
+    display: flex;
+    justify-content: end;
+    grid-row-start: 3;
+    align-self: flex-end;
+}
+
+#btn_addEsame{
+    background-color: #FCB91C;
+    padding: 10px;
+    font-weight: 400;
+    font-size: large;
+    border-radius: 6px;
+    border: 1px solid transparent;
+}
+
 #tableAppello_container{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 90%;
     justify-self: center;
-    align-self: center;
+    align-self: flex-start;
     grid-row-start: 3;
     overflow: auto;
     border: 1px solid #f7f8f3;
+    grid-row-start: 5;
 }
 
 table{
@@ -93,3 +113,30 @@ table{
     font-size: 16px;
 }
 
+#formAddEsame{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#c_formAddEsame{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row-start: 4;
+    grid-column-start: 1;
+    display: none;
+}
+
+#btn_removeForm{
+    background-color: #f7444e;
+    color: white;
+    width: 100px;
+    margin-left: 20px;
+    font-weight: 400;
+    font-size: xx-large;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    display: none;
+}
