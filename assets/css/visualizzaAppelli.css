@@ -147,7 +147,7 @@ thead{
 
 thead tr{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 0.8fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     height: 50px;
     font-size: 20px;
@@ -160,7 +160,7 @@ thead tr th{
 
 tbody tr{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 0.8fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     font-size: 18px;
     height: 40px;

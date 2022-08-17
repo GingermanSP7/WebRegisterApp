@@ -140,3 +140,7 @@ table{
     border: 1px solid transparent;
     display: none;
 }
+
+.fontSize15{
+    font-size: 15px;
+}
