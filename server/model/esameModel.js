@@ -30,7 +30,6 @@ function creaEsame(req,callback){
 function getAllEsame(req,callback){
 
     sql.connect(function(){
-        console.log("RICHIESTA NEL MODEL: ",req);
         const idAppello = req.body;
         console.log("Ricerco l'esame con idAppello: ",idAppello);        
         sql.query("select * from esame where idAppello = ?",[idAppello],function(err,result){

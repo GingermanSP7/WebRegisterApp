@@ -50,7 +50,6 @@ async function updateAppello(req,callback){
     const idAppello = req.params[0].idAppello;
     const nomeAppelloUpdated = req.body.nomeAppello;
 
-    console.log("SONO NEL MODEL: ",idAppello,nomeAppelloUpdated);
     sql.connect(function(){
         console.log("Connected for UPDATE Appello");       
         sql.query('update appello set nomeAppello = ? where idAppello = ?',[nomeAppelloUpdated,idAppello],function(error,result){
