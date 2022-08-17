@@ -19,4 +19,12 @@ let request = {
 $.ajax(request).done(function (response) {
     $("#counter").text(response[0].res);
     document.querySelector(".nPrenotati").textContent = response[0].res;
-})
+});
+
+
+$(document).ready(function () {
+    $("#counter").counterUp({
+        delay: 10,
+        time: 1000
+    })
+});

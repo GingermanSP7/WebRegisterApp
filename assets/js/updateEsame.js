@@ -39,15 +39,44 @@ $("#delEsame").on("click",function(event){
             })
         }
     })
-    
 })
 
+let url = "";
 $("#btn_addEsame").on("click",function(){
     $("#c_formAddEsame").css({"display":"flex"});
     $("#btn_removeForm").css({"display":"block"});
+    (function(){
+        url = window.location.href.split("=");
+        document.getElementById("idAppelloForm").value = url[1];  // con le ultime due righe c'è il bug del counter nella home 
+    }());
 })
 
 $("#btn_removeForm").on("click",function(){
     $("#c_formAddEsame").css({"display":"none"});
     $("#btn_removeForm").css({"display":"none"});
 })
+
+$("#formUpdateEsame").submit(function(event){
+    event.preventDefault();
+
+    var unindexed_array = $(this).serializeArray();
+    var data = {};
+
+    $.map(unindexed_array, function(n,i){
+        data[n['name']] = n['value'];
+    });
+
+    console.log("DATA TO UPDATE: ",data);
+
+    var request = {
+        "url" : `/creaEsame`,
+        "method": "POST",
+        "data": data
+    }
+
+    $.ajax(request).done(function(response){
+        alert("Esame aggiunto con successo!");
+        location.reload();
+    })
+})
+

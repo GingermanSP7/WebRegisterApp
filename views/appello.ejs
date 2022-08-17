@@ -21,23 +21,27 @@
         <button id="btn_removeForm">-</button>
     </div>
     <div id="c_formAddEsame">
-        <form action="#" method="POST" id="formUpdateEsame" class="updateEsame displayNone">
+        <form method="POST" id="formUpdateEsame" class="displayNone">
             <div id="container_Esame">
+                <label for="idAppello" class="labelUpdateEsame">
+                    <span class="span">ID Appello:</span> 
+                    <input type="text" name="idAppello" id="idAppelloForm" class="in_esame" placeholder="idAppello" readonly>
+                </label>
                 <label for="matricola" class="labelUpdateEsame">
                     <span class="span">Matricola:</span> 
                     <input type="text" name="matricola" id="matricola" class="in_esame" placeholder="Matricola" required>
                 </label>
-                <label for="votoScritto" class="labelUpdateEsame">
+                <label for="risposteDate" class="labelUpdateEsame">
                     <span class="span">Risposte Date:</span> 
-                    <input type="text" name="votoScritto" id="votoScritto" class="in_esame" placeholder="Risposte Date" required>
+                    <input type="text" name="risposteDate" id="risposteDate" class="in_esame" placeholder="Risposte Date" required>
                 </label>
-                <label for="maxDomande" class="labelUpdateEsame">
+                <label for="maxRisposte" class="labelUpdateEsame">
                     <span class="span">Max Domande Esame:</span> 
-                    <input type="text" name="maxDomande" id="maxDomande" class="in_esame" placeholder="N. Domande" required>
+                    <input type="text" name="maxRisposte" id="maxRisposte" class="in_esame" placeholder="N. Domande" required>
                 </label>
                 <label for="maxVotoScritto" class="labelUpdateEsame">
                     <span class="span">Max voto scritto:</span> 
-                    <input type="text" name="maxVotoScritto" id="maxVotoScritto" class="in_esame" placeholder="Max voto scritto" required>
+                    <input type="text" name="maxVotoScritto" id="maxVotoScritto" class="in_esame fontSize15" class="in_esame" placeholder="Max voto scritto" required>
                 </label>
                 <label for="formula" class="labelUpdateEsame">
                     <span class="span">Formula:</span> 
@@ -60,7 +64,7 @@
                     <input type="text" name="stato" id="stato" class="in_esame" placeholder="Stato esame" required>
                 </label>
                 <div id="c_sbmtEsame">            
-                    <input type="submit" name="submitData" id="submitData" value="Invia">
+                    <input type="submit" name="submitData" id="btn_addEsame" value="Invia">
                 </div>
             </div>
         </form>

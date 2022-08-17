@@ -118,6 +118,16 @@ route.put("/updateEsame/edit",(req,res)=>{
     })
 })
 
+route.post("/creaEsame",(req,res)=>{
+    console.log("SONO NELLA ROUTE: ",req);
+    esameController.creaEsame(req,function(err,result){
+        if(!result){
+            res.status(400).send(err);
+        }
+        res.status(200).send(result);
+    })
+})
+
 // L'API viene chiamata dal form di appello.ejs
 route.post("/uploadFile", (req, res) => {
     /**

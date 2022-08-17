@@ -40,3 +40,4 @@ if(window.location.pathname == "/visualizzaAppelli"){
         }
     })
 }
+
