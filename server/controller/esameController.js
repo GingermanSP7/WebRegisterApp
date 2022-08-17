@@ -69,3 +69,24 @@ exports.deleteEsame = (req,res)=>{
         res.status(200).send(result);
     })
 }
+
+exports.countPromossi = (req,res)=>{
+    esameModel.countPromossi(req,function(err,result){
+        if(!result){
+            res.status(400).send(err);
+            return;
+        }
+        res.send(String(result));
+    })
+}
+
+exports.countRimandati = (req,res)=>{
+    esameModel.countRimandati(req,function(err,result){
+        if(!result){
+            res.send(err);
+            return;
+        }
+        res.send(String(result));
+    })
+}
+

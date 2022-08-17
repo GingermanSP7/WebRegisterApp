@@ -19,6 +19,8 @@ api.post("/api/creaAppello",appelloController.createAppello);
 api.post("/api/creaEsame",esameController.creaEsame);
 api.get("/api/getCountEsame",esameController.getCountEsame);
 api.delete("/api/deleteEsame",esameController.deleteEsame);
+api.get("/api/getCountPromossi",esameController.countPromossi);
+api.get("/api/getCountRimandati",esameController.countRimandati);
 
 /**
  * API STUDENTE

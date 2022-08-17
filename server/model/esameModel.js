@@ -111,4 +111,32 @@ function deleteEsame(req,callback){
     })
 }
 
-module.exports = {esame,creaEsame,getAllEsame,getCountEsame,getEsame,updateEsame,deleteEsame};
+function countPromossi(req,callback){
+    sql.connect(function(){
+        console.log("Connesso al DB per contare il numero di promossi");
+        sql.query("select count(*) as ris from esame as e where e.votoComplessivo > 18",function(err,result){
+            if(!result){
+                callback(err,null);
+                return;
+            }
+            console.log("Risultato dal db",result[0].ris);
+            callback(null,result[0].ris);
+        })
+    })
+}
+
+
+function countRimandati(req,callback){
+    sql.connect(function(){
+        console.log("Connesso al DB per contare il numero di rimandati");
+        sql.query("select count(*) as ris from esame as e where e.votoComplessivo LIKE '/' or e.votoComplessivo LIKE 'R'",function(err,result){
+            if(!result){
+                callback(err,null);
+                return;
+            }
+            callback(null,result[0].ris);
+        })
+    })
+}
+
+module.exports = {esame,creaEsame,getAllEsame,getCountEsame,getEsame,updateEsame,deleteEsame,countPromossi,countRimandati};
