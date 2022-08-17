@@ -32,7 +32,6 @@ exports.getAppello = async function(req,callback){
 }
 
 exports.updateAppello = async function(req,callback){
-    console.log("RICHIESTA UPDATE: ",req);
     if(Object.keys(req.body).length == 0){
         callback({message: "Errore, corpo mancante"},null);
     }

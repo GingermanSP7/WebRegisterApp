@@ -87,7 +87,6 @@ route.get("/appello", (req, res) => {
         if(!result){
             res.status(400).send(err);
         }
-        console.log("RESULT: ",result);
         res.render("appello",{esame: result});
     })
 });
@@ -119,7 +118,6 @@ route.put("/updateEsame/edit",(req,res)=>{
 })
 
 route.post("/creaEsame",(req,res)=>{
-    console.log("SONO NELLA ROUTE: ",req);
     esameController.creaEsame(req,function(err,result){
         if(!result){
             res.status(400).send(err);
