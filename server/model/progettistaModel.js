@@ -76,4 +76,21 @@ function updateProgettista(req,callback){
     })
 }
 
-module.exports = {progettisti,creaProgettista,getAllProgettisti,getProgettista,updateProgettista}
+function deleteProgettista(req,callback){
+    sql.connect(function(){
+        const matricola = req.query.matricola;
+
+        sql.query("delete from progettista where matricola = ?",
+        [matricola],
+        function(err,result){
+            if(!result){
+                callback(err,null);
+                return;
+            }
+            console.log("RESULT: ",result);
+            callback(null,result);
+        })
+    })
+}
+
+module.exports = {progettisti,creaProgettista,getAllProgettisti,getProgettista,updateProgettista,deleteProgettista}

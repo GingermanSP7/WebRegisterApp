@@ -1,4 +1,4 @@
-const progettistiModel = require("../model/progettistiModel");
+const progettistiModel = require("../model/progettistaModel");
 
 exports.creaProgettista = (req,callback)=>{
     progettistiModel.creaProgettista(req,function(err,result){
@@ -31,6 +31,17 @@ exports.getProgettista = (req,callback)=>{
 
 exports.updateProgettista = (req,callback)=>{
     progettistiModel.updateProgettista(req,function(err,result){
+        if(!result){
+            callback(err,null);
+            return;
+        }
+        callback(null,result);
+    })
+}
+
+
+exports.deleteProgettista = (req,callback)=>{
+    progettistiModel.deleteProgettista(req,function(err,result){
         if(!result){
             callback(err,null);
             return;

@@ -272,4 +272,13 @@ route.put("/updateProgettista/edit",(req,res)=>{
     })
 })
 
+route.delete("/deleteProgettista",(req,res)=>{
+    progettistaController.deleteProgettista(req,function(err,result){
+        if(!result){
+            res.status(400).send(err);
+        }
+        res.status(200).send(result);
+    })
+})
+
 module.exports = route;

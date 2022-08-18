@@ -61,7 +61,7 @@
         <table>
             <thead id="thead">
                 <tr class="trProgetto">
-                    <!-- <th>ID_Appello</th> -->
+                    <th>ID_Appello</th>
                     <th>Matricola</th>
                     <th>Voto</th>
                     <th>Voto_Progetto</th>
@@ -87,8 +87,8 @@
                         <button class="btn_action edit" title="modifica">
                             <a href="/updateProgettista?idAppello=<%=progettisti[i].idAppello%>&matricola=<%=progettisti[i].matricola%>"><box-icon name='edit-alt' type='solid' color='#FCB91C' ></box-icon></a>
                         </button>
-                        <button class="btn_action remove" title="cancella">
-                            <a data-id="" data-matricola="" id="delProgetto" class="delete"><box-icon name='x' color='#f7444e' ></box-icon></a>
+                        <button class="btn_action remove" title="cancella" id="btn_remove">
+                            <a data-matricola="<%= progettisti[i].matricola %>" id="delProgettista" class="deleteProg"><box-icon name='x' color='#f7444e' ></box-icon></a>
                         </button>
                     </td>
                 </tr>

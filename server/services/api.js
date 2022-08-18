@@ -33,5 +33,6 @@ api.post("/api/creaStudente",studenteController.addStudente);
  * Utilizzate solo per test con postman
  */
 api.get("/api/getProgettista",progettistaController.getProgettista);
+api.delete("/api/deleteProgettista",progettistaController.deleteProgettista);
 
 module.exports = api;

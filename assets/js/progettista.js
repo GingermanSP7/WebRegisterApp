@@ -57,3 +57,20 @@ $(".updateProgettista").submit(function(event){
         location.reload();
     })
 })
+
+let ondelete = $("table tbody tr td button a.deleteProg");
+ondelete.click(function(){
+    var matricola = $(this).attr("data-matricola");
+
+    var request = {
+        "url" : `/deleteProgettista?matricola=${matricola}`,
+        "method": "DELETE",
+    }
+
+    if(confirm("Vuoi davvero eliminare il progetto?")){
+        $.ajax(request).done(function(response){
+            alert("progetto eliminato con successo!");
+            location.reload();
+        })
+    }
+})
