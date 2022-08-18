@@ -33,3 +33,27 @@ $("#formAddProgettista").submit(function(event){
         location.reload();
     })
 })
+
+$(".updateProgettista").submit(function(event){
+    event.preventDefault();
+
+    var unindexed_array = $(this).serializeArray();
+    var data = {};
+
+    $.map(unindexed_array, function(n,i){
+        data[n['name']] = n['value'];
+    });
+
+    console.log("DATA TO UPDATE: ",data);
+
+    var request = {
+        "url" : `/updateProgettista/edit?matricola=${data.matricola}`,
+        "method": "PUT",
+        "data": data
+    }
+
+    $.ajax(request).done(function(){
+        alert("Progettista aggiornato con successo!");
+        location.reload();
+    })
+})

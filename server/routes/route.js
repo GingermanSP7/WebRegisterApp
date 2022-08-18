@@ -246,4 +246,30 @@ route.post("/uploadFileProgettista",(req,res)=>{
         })
 })
 
+route.get("/updateProgettista",(req,res)=>{
+    const request = {
+        body: {
+            matricola: req.query.matricola
+        }
+    }
+    progettistaController.getProgettista(request,function(err,result){
+        if(!result){
+            console.log("Errore nella route!");
+            res.status(400).send(err);
+        }
+        res.status(200).render("updateProgettista",{progettista: result});
+    });
+})
+
+route.put("/updateProgettista/edit",(req,res)=>{
+    progettistaController.updateProgettista(req,function(err,result){
+        if(!result){
+            console.log(err);
+            res.status(400).send(err);
+            return;
+        }
+        res.status(200).send(result);
+    })
+})
+
 module.exports = route;

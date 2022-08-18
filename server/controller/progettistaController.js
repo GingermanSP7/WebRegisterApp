@@ -18,3 +18,23 @@ exports.getAllProgettisti = (req,callback)=>{
         callback(null,result);
     })
 }
+
+exports.getProgettista = (req,callback)=>{
+    progettistiModel.getProgettista(req,function(err,result){
+        if(!result){
+            callback(err,null);
+            return;
+        }
+        callback(null,result);
+    })
+}
+
+exports.updateProgettista = (req,callback)=>{
+    progettistiModel.updateProgettista(req,function(err,result){
+        if(!result){
+            callback(err,null);
+            return;
+        }
+        callback(null,result);
+    })
+}
