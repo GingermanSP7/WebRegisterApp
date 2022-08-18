@@ -53,7 +53,6 @@ route.get("/progettisti", (req, res) => {
         if (!result) {
             res.status(400).send(err);
         }
-        console.log("PROGETTISTI: ",result);
         res.render("progettisti", { progettisti: result })
     })
 })

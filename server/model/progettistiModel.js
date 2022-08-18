@@ -33,7 +33,6 @@ function getAllProgettisti(req,callback){
                 callback(err,null);
                 return;
             }
-            console.log("MODEL: ",result);
             callback(null,result);
         })
     })
