@@ -56,6 +56,18 @@
     align-self: flex-end;
 }
 
+#btn_removeFormProg{
+    background-color: #f7444e;
+    color: white;
+    width: 100px;
+    margin-left: 20px;
+    font-weight: 400;
+    font-size: xx-large;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    display: none;
+}
+
 #btn_addProgettista{
     background-color: #FCB91C;
     padding: 10px;
@@ -67,7 +79,6 @@
 
 #c_formAddProgettista{
     width: 100%;
-    display: flex;
     justify-content: center;
     align-items: center;
     grid-row-start: 4;
@@ -104,5 +115,14 @@
     color: #f7f8f3;
 }
 
-
+#formAddProgettista{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 700px;
+    border: 2px solid white;
+    border-radius: 10px;
+    box-shadow: 5px 4px 4px #fcb91c8c;
+}
 
