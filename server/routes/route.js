@@ -40,8 +40,8 @@ route.get("/creaAppello", (req, res) => {
  * @Description route tesisti
  * @method GET/tesisti
  */
-route.get("/tesisti", (req, res) => {
-    res.render("tesisti");
+route.get("/studenti", (req, res) => {
+    res.render("studenti");
 })
 
 /**
