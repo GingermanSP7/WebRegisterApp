@@ -14,14 +14,14 @@
     </div>
     <div id="c_addProgettista">
         <button  id="btn_addProgettista">Aggiungi Progettista</button>
-        <button id="btn_removeForm">-</button>
+        <button id="btn_removeFormProg">-</button>
     </div>
     <div id="c_formAddProgettista">
-        <form method="POST" id="formUpdateEsame" class="displayNone">
+        <form method="POST" id="formAddProgettista" id="displayNone">
             <div id="container_Esame">
                 <label for="idAppello" class="labelUpdateEsame">
                     <span class="span">ID Appello:</span> 
-                    <input type="text" name="idAppello" id="idAppelloForm" class="in_esame" placeholder="idAppello" readonly>
+                    <input type="text" name="idAppello" id="idAppelloForm" class="in_esame" placeholder="idAppello" required>
                 </label>
                 <label for="matricola" class="labelUpdateEsame">
                     <span class="span">Matricola:</span> 
@@ -52,7 +52,7 @@
                     <input type="text" name="titoloProgetto" id="titoloProgetto" class="in_esame" placeholder="Titolo Progetto" required>
                 </label>
                 <div id="c_sbmtEsame">            
-                    <input type="submit" name="submitData" id="btn_addEsame" value="Invia">
+                    <input type="submit" name="submitData" id="btn_addProgettista" value="Invia">
                 </div>
             </div>
         </form>
