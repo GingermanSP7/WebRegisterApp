@@ -4,6 +4,7 @@ const route = express.Router();
 const CSVToJSON = require("csvtojson");
 const studenteController = require("../controller/studenteController");
 const esameController = require("../controller/esameController");
+const progettistaController = require("../controller/progettistaController"); 
 
 /**
  * @Description route homepage
@@ -48,7 +49,13 @@ route.get("/tesisti", (req, res) => {
  * @method GET/progettisti
  */
 route.get("/progettisti", (req, res) => {
-    res.render("progettisti");
+    progettistaController.getAllProgettisti(req, function (err, result) {
+        if (!result) {
+            res.status(400).send(err);
+        }
+        console.log("PROGETTISTI: ",result);
+        res.render("progettisti", { progettisti: result })
+    })
 })
 
 /**
@@ -199,6 +206,45 @@ route.post("/uploadFile", (req, res) => {
         })
 });
 
+route.post("/creaProgettista",(req,res)=>{
+    progettistaController.creaProgettista(req,function(err,result){
+        if(!result){
+            res.status(400).send(err);
+        }
+        res.status(200).send(result);
+    })
+})
 
+route.post("/uploadFileProgettista",(req,res)=>{
+    let nomeFile_Progettisti = req.body.nomeFile;
+    console.log(req.body.nomeFile);
+    CSVToJSON().fromFile("C:/Users/salva/OneDrive/Desktop/WebRegisterApp2.0/server/helper/progettisti/" + nomeFile_Progettisti)
+        .then((arr) => {
+            arr.forEach((progettista) => {
+                //console.log(progettista);
+                progettistaController.creaProgettista({
+                    body: {
+                        idAppello: `${progettista.ID_Appello}`,
+                        matricola: `${progettista.Matricola}`,
+                        voto: `${progettista.Voto}`,
+                        votoProgetto: `${progettista.Voto_Progetto}`,
+                        votoFinale: `${progettista.Voto_Finale}`,
+                        dataConsegna: `${progettista.Data_Consegna}`,
+                        esito: `${progettista.Esito}`,
+                        titoloProgetto: `${progettista.Titolo_Progetto}`
+                    }
+                }, function (err, result) {
+                    if (!result && err) {
+                        if(err.code == "ER_DUP_ENTRY"){
+                            console.log("Errore, stai cercando di iserire elementi già presenti!");
+                        }
+                    }
+                })
+            })
+        })
+        .catch((err) => {
+            console.log(err.message);
+        })
+})
 
 module.exports = route;

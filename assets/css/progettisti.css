@@ -1,0 +1,108 @@
+/*
+    Alcuni stili sono definiti nel file appello.css perchè hanno selettori in comune
+*/
+
+#containerProgettisti{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 1fr 0.2fr auto 1fr;
+    row-gap: 30px;
+    margin-top: 30px;
+}
+
+#divFormProgetto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    grid-row-start: 2;
+}
+
+#formProgetto{
+    border: 2px solid #f7f8f3;
+    padding: 30px;
+    border-radius: 10px;
+    color: #f7f8f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#formProgetto div{
+    padding-top: 30px;
+}
+
+#formProgetto>div b{
+    margin-right: 20px;
+    font-size: large;
+    color: #FCB91C;
+}
+
+#formProgetto :last-child input{
+    background-color: transparent;
+    border: 2px solid #FCB91C;
+    padding: 10px;
+    color: #f7f8f3;
+    font-size: large;
+    border-radius: 5px;
+}
+
+#c_addProgettista{
+    width: 95%;
+    display: flex;
+    justify-content: end;
+    grid-row-start: 3;
+    align-self: flex-end;
+}
+
+#btn_addProgettista{
+    background-color: #FCB91C;
+    padding: 10px;
+    font-weight: 400;
+    font-size: large;
+    border-radius: 6px;
+    border: 1px solid transparent;
+}
+
+#c_formAddProgettista{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row-start: 4;
+    grid-column-start: 1;
+    display: none;
+}
+
+#tableProgetto_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    justify-self: center;
+    align-self: flex-start;
+    grid-row-start: 3;
+    overflow: auto;
+    border: 1px solid #f7f8f3;
+    grid-row-start: 5;
+}
+
+#thead .trProgetto{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 2fr 1fr;
+    grid-template-rows: auto;
+    color: #f7f8f3;
+}
+
+#tbodyProgetto tr, #thead tr{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 2fr 1fr;
+    grid-template-rows: auto;
+    height: 50px;
+    font-size: 16px;
+    color: #f7f8f3;
+}
+
+
+
