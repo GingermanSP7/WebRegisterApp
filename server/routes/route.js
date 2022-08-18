@@ -164,7 +164,7 @@ route.post("/uploadFile", (req, res) => {
             console.log(err.message);
         })
 
-
+    //leggere il file per l'esame e salvare i risultati in esame
     let nomeFile_appello = req.body.nomeFile[1];
     console.log("NOME FILE APPELLO: ",nomeFile_appello);
     CSVToJSON().fromFile("C:/Users/salva/OneDrive/Desktop/WebRegisterApp2.0/server/helper/appelli/"+nomeFile_appello)
