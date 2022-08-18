@@ -57,7 +57,7 @@ function getEsame(req,callback){
         let idAppello = req.body.idAppello;
         let matricola = req.body.matricola;
 
-        console.log("Connesso al DB, ricerca esame: ",idAppello+" -- "+matricola);
+        console.log("Ricerco esame: ",idAppello+" -- "+matricola);
         sql.query("select * from esame where idAppello = ? and matricola = ?",[idAppello,matricola],function(err,result){
             if(!result){
                 callback(err,null);
@@ -113,7 +113,6 @@ function deleteEsame(req,callback){
 
 function countPromossi(req,callback){
     sql.connect(function(){
-        console.log("Connesso al DB per contare il numero di promossi");
         sql.query("select count(*) as ris from esame as e where e.votoComplessivo > 18",function(err,result){
             if(!result){
                 callback(err,null);
@@ -127,7 +126,6 @@ function countPromossi(req,callback){
 
 function countRimandati(req,callback){
     sql.connect(function(){
-        console.log("Connesso al DB per contare il numero di rimandati");
         sql.query("select count(*) as ris from esame as e where e.votoComplessivo LIKE '/' or e.votoComplessivo LIKE 'R'",function(err,result){
             if(!result){
                 callback(err,null);
