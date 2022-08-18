@@ -119,7 +119,6 @@ function countPromossi(req,callback){
                 callback(err,null);
                 return;
             }
-            console.log("Risultato dal db",result[0].ris);
             callback(null,result[0].ris);
         })
     })
