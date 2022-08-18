@@ -115,7 +115,7 @@
     color: #f7f8f3;
 }
 
-#formAddProgettista{
+#formAddProgettista,#formUpdateProgettista{
     display: flex;
     align-items: center;
     justify-content: center;
