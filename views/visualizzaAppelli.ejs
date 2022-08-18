@@ -19,7 +19,6 @@
                     <tr>
                         <th>ID</th>
                         <th>Nome Appello</th>
-                        <!-- <th>N. Esaminati</th> -->
                         <th>Azione</th>
                     </tr>
                 </thead>
@@ -28,7 +27,6 @@
                     <tr class="rows">
                         <td><%= appelli[i].idAppello %></td>
                         <td class="nomeAppello"><a href="/appello?idAppello=<%=appelli[i].idAppello %>"><%= appelli[i].nomeAppello %></a></td>
-                        <!-- <td class="nPrenotati">0</td> -->
                         <td class="btns" title="modifica">
                             <button class="btn_action edit" title="modifica">
                                 <a href="/updateAppello?idAppello=<%= appelli[i].idAppello %>"><box-icon name='edit-alt' type='solid' color='#fff' ></box-icon></a>
