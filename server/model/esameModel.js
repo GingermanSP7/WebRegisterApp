@@ -15,7 +15,7 @@ function creaEsame(req,callback){
         const votoComplessivo = req.body.votoComplessivo;
         const stato = req.body.stato;
         
-        sql.query("insert into esame(idAppello,matricola,maxRisposte,risposteDate,maxVotoScritto,formula,orale,laboratorio,votoComplessivo,stato) values(?,?,?,?,?,?,?,?,?,?)",
+        sql.query("insert ignore into esame(idAppello,matricola,maxRisposte,risposteDate,maxVotoScritto,formula,orale,laboratorio,votoComplessivo,stato) values(?,?,?,?,?,?,?,?,?,?)",
         [idAppello,matricola,maxRisposte,risposteDate,maxVotoScritto,formula,orale,laboratorio,votoComplessivo,stato],function(err,result){
             if(err){
                 callback(err,null);
