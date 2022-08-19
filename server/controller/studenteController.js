@@ -52,3 +52,13 @@ exports.deleteStudente = (req,callback)=>{
         callback(null,result);
     })
 }
+
+exports.getCountStudente = (req,callback)=>{
+    studenteModel.getCountStudente(req,function(err,result){
+        if(!result){
+            callback(err,null);
+            return;
+        }
+        callback(null,result);
+    })
+}

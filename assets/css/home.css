@@ -114,7 +114,7 @@ nav{
     color: #FCB91C;
 }
 
-#g_esaminati{
+#g_esaminati, #g_registrati{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -131,8 +131,16 @@ nav{
     text-align: center;
 }
 
-.wrapper p{
+.fontSize50{
     font-size: 50px;
+}
+
+.fontSize47{
+    font-size: 47px;
+}
+
+.wrapper p{
+    font-size: 50px ;
     color: #f7f8f3;
     border: 5px solid #FCB91C;
     padding: 0 30px;
@@ -140,10 +148,11 @@ nav{
     border-radius: 20px;
 }
 
-.card_progettisti,.card_esaminati{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 50px;
+.card_registrati,.card_esaminati{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
     background-color: transparent;
     border: 2px solid #f7f8f3;
     border-radius: 5px;
@@ -151,13 +160,7 @@ nav{
     height: 400px;
     color: #f7f8f3;
 }
-
-#g_progettisti{
-    display: flex;
-    justify-content: start;
-    align-content: center;
-}
-
+/* 
 #annoDiRiferimento{
     display: flex;
     justify-content: center;
@@ -166,4 +169,4 @@ nav{
 
 #annoDiRiferimento>span{
     padding-right: 10px;
-}
+} */

@@ -86,4 +86,18 @@ function deleteStudente(req,callback){
     })
 }
 
-module.exports = {studente,addStudente,getAllStudente,getStudenteByMatricola,updateStudente,deleteStudente};
+function getCountStudente(req,callback){
+    sql.connect(function(){
+
+        sql.query("select count(*) as res from studente",
+        function(err,result){
+            if(!result){
+                callback(err,null);
+                return;
+            }
+            callback(null,result);
+        })
+    })
+}
+
+module.exports = {studente,addStudente,getAllStudente,getStudenteByMatricola,updateStudente,deleteStudente,getCountStudente};

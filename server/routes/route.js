@@ -93,6 +93,16 @@ route.delete("/deleteStudente",(req,res)=>{
     })
 })
 
+route.get("/getCountStudente",(req,res)=>{
+    studenteController.getCountStudente(req,function(err,result){
+        if(!result){
+            res.status(400).send(err);
+        }
+        console.log("RESULT: ",result);
+        res.status(200).send(result);
+    })
+})
+
 /**
  * @Description route progettisti
  * @method GET/progettisti
@@ -329,5 +339,7 @@ route.delete("/deleteProgettista",(req,res)=>{
         res.status(200).send(result);
     })
 })
+
+
 
 module.exports = route;
