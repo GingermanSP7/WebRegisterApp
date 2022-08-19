@@ -1,6 +1,6 @@
 const sql = require("../database/dbConnection");
 
-let progettisti = sql.query("create table if not exists progettista(idAppello bigint unsigned not null, matricola varchar(10) not null, voto int unsigned not null check(voto>=18 and voto<=31), votoProgetto int unsigned not null, votoFinale varchar(4) not null, dataConsegna varchar(35) not null, esito varchar(20) not null, titoloProgetto varchar(60) not null, foreign key (idAppello) references appello(idAppello), foreign key(matricola) references esame(matricola), primary key(matricola))");
+let progettisti = sql.query("create table if not exists progettista(idAppello bigint unsigned not null, matricola varchar(10) not null, voto int unsigned not null check(voto>=18 and voto<=31), votoProgetto int unsigned not null, votoFinale varchar(4) not null, dataConsegna varchar(35) not null, esito varchar(20) not null, titoloProgetto varchar(60) not null, foreign key (idAppello) references appello(idAppello), foreign key(matricola) references esame(matricola) on delete cascade, primary key(matricola))");
 
 function creaProgettista(req,callback){
     const idAppello = req.body.idAppello;

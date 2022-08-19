@@ -63,6 +63,7 @@ exports.deleteEsame = (req,res)=>{
     }
     esameModel.deleteEsame(req,function(err,result){
         if(!result){
+            console.log(err);
             res.status(400).send(err);
             return;
         }

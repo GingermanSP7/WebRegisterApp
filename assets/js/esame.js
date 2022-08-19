@@ -22,7 +22,7 @@ $(".updateEsame").submit(function(event){
 })
 
 
-let $ondelete = $("table tbody tr td button a.delete");
+let $ondelete = $("table tbody tr td button a.deleteEsame");
 $ondelete.click(function(){
     var idAppello = $(this).attr("data-id");
     var matricola = $(this).attr("data-matricola");
