@@ -37,7 +37,7 @@ $("#formAddAppello").submit(function(event){
     })
 })
 
-$(".updateAppello").submit(function(event){
+$("#formUpdateAppello").submit(function(event){
     event.preventDefault();
 
     var unindexed_array = $(this).serializeArray();
