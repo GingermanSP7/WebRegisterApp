@@ -116,8 +116,14 @@ table{
 
 #formAddEsame{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
+    width: 40%;
+    height: 700px;
+    border: 2px solid white;
+    border-radius: 10px;
+    box-shadow: 5px 4px 4px #fcb91c8c;
 }
 
 #c_formAddEsame{
