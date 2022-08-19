@@ -27,13 +27,22 @@ route.get("/visualizzaAppelli", (req, res) => {
     })
 })
 
-
 /**
  * @Description route crea appello
  * @method GET/creaAppello
  */
 route.get("/creaAppello", (req, res) => {
     res.render("creaAppello");
+})
+
+route.post("/creaAppello/add",(req,res)=>{
+    appelloController.createAppello(req,function(err,result){
+        if(!result){
+            res.send({msg: "Errore nella creazione dell'appello: "+err.message})
+            return;
+        }
+        res.send({msg:"Appello creato con successo!"});
+    })
 })
 
 /**
