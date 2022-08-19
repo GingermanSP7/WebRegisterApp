@@ -1,7 +1,7 @@
 #containerAppello{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 1fr 0.2fr auto 1fr;
+    grid-template-rows: 0.5fr 1fr 0.2fr auto auto 1fr;
     row-gap: 30px;
     margin-top: 30px;
 }
@@ -53,11 +53,12 @@ h1{
 }
 
 #c_addEsame{
-    width: 95%;
+    width: 90%;
     display: flex;
     justify-content: end;
     grid-row-start: 3;
     align-self: flex-end;
+    justify-self: center;
 }
 
 #btn_addEsame{
@@ -79,7 +80,7 @@ h1{
     grid-row-start: 3;
     overflow: auto;
     border: 1px solid #f7f8f3;
-    grid-row-start: 5;
+    grid-row-start: 6;
 }
 
 table{
@@ -143,4 +144,55 @@ table{
 
 .fontSize15{
     font-size: 15px;
+}
+
+#c_searchAppello{
+    width: 90%;
+    display: flex;
+    justify-content: start;
+    align-self: flex-end;
+    grid-row-start: 5;
+    justify-self: center;
+
+}
+
+#c_searchAppello> div>span{
+    margin-right: 20px;
+    color: #f7f8f3;
+    font-size: 23px;
+    font-weight: 500;
+    color: #FCB91C;
+}
+
+/* 
+il codice css lo prende da studenti.css
+.c_search>button{
+    border: 0px none transparent;
+    background-color: transparent;
+}
+
+.c_search>input{
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1.3rem;
+    color: #f7f8f3;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+
+.c_search{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+} */
+
+.c_search:hover{
+    cursor: pointer;
 }

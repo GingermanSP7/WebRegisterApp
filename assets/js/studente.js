@@ -1,6 +1,5 @@
 if(window.location.pathname == "/studenti"){
     let input = document.querySelector("#searchStudentByMatricola");
-    let btnSearch = document.querySelector(".btnSearch");
 
     input.addEventListener("input", () => {
         let td,txtValue;

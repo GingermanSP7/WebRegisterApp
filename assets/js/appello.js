@@ -81,3 +81,28 @@ if(window.location.pathname == "/visualizzaAppelli"){
     })
 }
 
+if(window.location.pathname == "/appello"){
+    let input = document.querySelector("#searchAppelloByMatricola");
+    
+
+    input.addEventListener("input", () => {
+        let td,txtValue;
+        let str = input.value.toUpperCase();
+        let table = document.getElementById("tableAppello")
+        let tr = table.rows;
+
+        for(let i=1;i<tr.length;i++){       
+            td = tr[i].children[1];
+            if(td){
+                txtValue = td.textContent
+                if(txtValue.indexOf(str)>-1){
+                    tr[i].style.display = "";
+                }
+                else{
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    })
+}
+

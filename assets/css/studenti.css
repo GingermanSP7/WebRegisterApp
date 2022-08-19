@@ -50,6 +50,19 @@ h1{
     transition: border-color 0.2s;
 }
 
+
+.c_search{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.c_search:hover{
+    cursor: pointer;
+}
+
 #c_tableStudente{
     display: flex;
     justify-content: center;
@@ -77,18 +90,6 @@ h1{
     height: 50px;
     font-size: 20px;
     color: #f7f8f3;
-}
-
-.c_search{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-}
-
-.c_search:hover{
-    cursor: pointer;
 }
 
 #thead tr th{

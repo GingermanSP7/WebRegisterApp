@@ -20,6 +20,14 @@
         <button  id="btn_addEsame">Aggiungi Esame</button>
         <button id="btn_removeForm">-</button>
     </div>
+    <div id="c_searchAppello">
+        <div>
+            <span>Ricerca Esame Sostenuto</span>
+            <div class="c_search">
+                <input type="text" id="searchAppelloByMatricola" placeholder="Matricola Studente">
+            </div>
+        </div>
+    </div>
     <div id="c_formAddEsame">
         <form method="POST" id="formUpdateEsame" class="displayNone">
             <div id="container_Esame">
@@ -70,7 +78,7 @@
         </form>
     </div>
     <div id="tableAppello_container">
-        <table>
+        <table id="tableAppello">
             <thead id="thead">
                 <tr class="trAppello">
                     <th>ID_Appello</th>
