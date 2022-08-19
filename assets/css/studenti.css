@@ -65,14 +65,14 @@ h1{
 
 #thead .trStudente{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1.5fr 1.5fr 1.5fr 1.2fr 1.5fr 1fr 1fr;
     grid-template-rows: auto;
     color: #f7f8f3;
 }
 
 #tbodyStudente tr, #thead tr{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1.5fr 1.5fr 1.5fr 1.2fr 1.5fr 1fr 1fr;
     grid-template-rows: auto;
     height: 50px;
     font-size: 20px;
