@@ -72,7 +72,8 @@ exports.deleteEsame = (req,res)=>{
 
 exports.countPromossi = (req,res)=>{
     esameModel.countPromossi(req,function(err,result){
-        if(!result){
+        if(err){
+            console.log(err);
             res.status(400).send(err);
             return;
         }

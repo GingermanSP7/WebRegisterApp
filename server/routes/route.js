@@ -98,7 +98,6 @@ route.get("/getCountStudente",(req,res)=>{
         if(!result){
             res.status(400).send(err);
         }
-        console.log("RESULT: ",result);
         res.status(200).send(result);
     })
 })

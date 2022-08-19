@@ -113,7 +113,7 @@ function deleteEsame(req,callback){
 
 function countPromossi(req,callback){
     sql.connect(function(){
-        sql.query("select count(*) as ris from esame as e where e.votoComplessivo > 18",function(err,result){
+        sql.query("select count(*) as ris from esame as e, progettista as p where e.idAppello = p.idAppello and e.matricola = p.matricola and p.votoFinale >=18",function(err,result){
             if(!result){
                 callback(err,null);
                 return;
