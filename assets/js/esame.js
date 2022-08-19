@@ -21,25 +21,25 @@ $(".updateEsame").submit(function(event){
     })
 })
 
-$("#delEsame").on("click",function(event){
-    $ondelete = $("table tbody tr td button a.delete");
-    $ondelete.click(function(){
-        var idAppello = $(this).attr("data-id");
-        var matricola = $(this).attr("data-matricola");
 
-        var request = {
-            "url" : `/api/deleteEsame?idAppello=${idAppello}&matricola=${matricola}`,
-            "method": "DELETE",
-        }
+let $ondelete = $("table tbody tr td button a.delete");
+$ondelete.click(function(){
+    var idAppello = $(this).attr("data-id");
+    var matricola = $(this).attr("data-matricola");
 
-        if(confirm("Vuoi davvero eliminare l'esame?")){
-            $.ajax(request).done(function(response){
-                alert("Esame eliminato con successo!");
-                location.reload();
-            })
-        }
-    })
+    var request = {
+        "url" : `/api/deleteEsame?idAppello=${idAppello}&matricola=${matricola}`,
+        "method": "DELETE",
+    }
+
+    if(confirm("Vuoi davvero eliminare l'esame?")){
+        $.ajax(request).done(function(response){
+            alert("Esame eliminato con successo!");
+            location.reload();
+        })
+    }
 })
+
 
 let url = "";
 $("#btn_addEsame").on("click",function(){

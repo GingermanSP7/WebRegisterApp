@@ -2,7 +2,6 @@ const appelloModel = require("../model/appelloModel");
 
 //viene chiamata tramite api
 exports.createAppello = ((req,callback)=>{
-    let result = {};
     if(Object.keys(req.body).length == 0){                   
         res.status(400).send({message: "Content can't be empty"});
         return;
@@ -14,7 +13,6 @@ exports.createAppello = ((req,callback)=>{
         }
         callback(null,result);
     });
-    
 });
 
 exports.getAllAppelli = function(req,callback){
