@@ -35,10 +35,10 @@
                     <td><%= studente[i].cfu %></td>
                     <td>
                         <button class="btn_action edit" title="modifica">
-                            <a href="#"><box-icon name='edit-alt' type='solid' color='#FCB91C' ></box-icon></a>
+                            <a href="/updateStudente?matricola=<%= studente[i].Matricola %>"><box-icon name='edit-alt' type='solid' color='#FCB91C' ></box-icon></a>
                         </button>
                         <button class="btn_action remove" title="cancella">
-                            <a data-id="#" data-matricola="#" id="delStudente" class="delete"><box-icon name='x' color='#f7444e' ></box-icon></a>
+                            <a data-matricola="<%= studente[i].Matricola %>" id="delStudente" class="deleteStud"><box-icon name='x' color='#f7444e' ></box-icon></a>
                         </button>
                     </td>
                     </div>

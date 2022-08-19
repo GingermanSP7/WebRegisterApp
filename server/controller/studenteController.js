@@ -23,3 +23,32 @@ exports.getAllStudente =(req,callback)=>{
     })
 }
 
+exports.getStudenteByMatricola = (req,callback)=>{
+    studenteModel.getStudenteByMatricola(req,function(err,result){
+        if(!result){
+            callback(err,null);
+            return;
+        }
+        callback(null,result);
+    })
+}
+
+exports.updateStudente = (req,callback)=>{
+    studenteModel.updateStudente(req,function(err,result){
+        if(!result){
+            callback(err,null);
+            return;
+        }
+        callback(null,result);
+    })
+}
+
+exports.deleteStudente = (req,callback)=>{
+    studenteModel.deleteStudente(req,function(err,result){
+        if(!result){
+            callback(err,null);
+            return;
+        }
+        callback(null,result);
+    })
+}

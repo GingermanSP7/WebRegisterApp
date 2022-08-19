@@ -49,6 +49,41 @@ route.get("/studenti", (req, res) => {
     })
 })
 
+route.get("/updateStudente", (req, res) => {
+    const request = {
+        body: {
+            matricola: req.query.matricola
+        }
+    }
+    studenteController.getStudenteByMatricola(request,function(err,result){
+        if(!result){
+            console.log("Errore nella route!");
+            res.status(400).send(err);
+        }
+        res.status(200).render("updateStudente",{studente: result});
+    });
+})
+
+route.put("/updateStudente/edit",(req,res)=>{
+    studenteController.updateStudente(req,function(err,result){
+        if(!result){
+            console.log(err);
+            res.status(400).send(err);
+            return;
+        }
+        res.status(200).send(result);
+    })
+})
+
+route.delete("/deleteStudente",(req,res)=>{
+    studenteController.deleteStudente(req,function(err,result){
+        if(!result){
+            res.status(400).send(err);
+        }
+        res.status(200).send(result);
+    })
+})
+
 /**
  * @Description route progettisti
  * @method GET/progettisti

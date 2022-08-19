@@ -12,7 +12,6 @@ function addStudente(req,callback){
     let cfu = req.body.cfu;
 
     sql.connect(function(){
-        // console.log("Connected for ADD studente:", {matricola,nome,cognome});
         sql.query("insert into studente(Matricola,Nome,Cognome,cf,codCdsIscr,Regolamento,cfu) values(?,?,?,?,?,?,?)",[matricola,nome,cognome,cf,codCdsIscr,regolamento,cfu],function(err,result){
             if(!result){
                 callback(err,null);
@@ -24,7 +23,6 @@ function addStudente(req,callback){
 
 function getAllStudente(req,callback){
     sql.connect(function(){
-        // console.log("Connected for ADD studente:", {matricola,nome,cognome});
         sql.query("select * from studente",function(err,result){
             if(!result){
                 callback(err,null);
@@ -34,4 +32,58 @@ function getAllStudente(req,callback){
     })
 }
 
-module.exports = {studente,addStudente,getAllStudente};
+function getStudenteByMatricola(req,callback){
+    const matricola = req.body.matricola;
+    sql.connect(function(){
+        sql.query("select * from studente where matricola = ?",
+        [matricola],
+        function(err,result){
+            if(!result){
+                callback(err,null);
+                return;
+            }
+            callback(null,result);
+        })
+    })
+}
+
+function updateStudente(req,callback){
+    const matricola = req.body.matricola;
+    const nome = req.body.nome;
+    const cognome = req.body.cognome;
+    const cf = req.body.cf;
+    const codCdsIscr = req.body.codCdsIscr;
+    const regolamento = req.body.regolamento;
+    const cfu = req.body.cfu;
+
+    sql.connect(function(){
+        sql.query("update studente set Matricola = ?, Nome = ?, Cognome = ?, cf = ?, codCdsIscr = ?, Regolamento = ?, cfu = ? where matricola = ?",
+        [matricola,nome,cognome,cf,codCdsIscr,regolamento,cfu,matricola],
+        function(err,result){
+            if(!result){
+                callback(err,null);
+                return;
+            }
+            callback(null,result);
+        })
+    })
+}
+
+function deleteStudente(req,callback){
+    sql.connect(function(){
+        const matricola = req.query.matricola;
+
+        sql.query("delete from studente where matricola = ?",
+        [matricola],
+        function(err,result){
+            if(!result){
+                callback(err,null);
+                return;
+            }
+            console.log("RESULT: ",result);
+            callback(null,result);
+        })
+    })
+}
+
+module.exports = {studente,addStudente,getAllStudente,getStudenteByMatricola,updateStudente,deleteStudente};
