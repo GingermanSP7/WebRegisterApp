@@ -2,7 +2,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 200px 0.5fr;
+    grid-template-rows: 200px auto 1fr;
     align-items: center;
 }
 
@@ -15,9 +15,11 @@
 #formAddAppello{
     color: #f7f8f3;
     display: flex;
-    justify-content: center;
+    justify-content: start;
+    height: 100%;
     align-items: center;
     border: 0px none transparent;
+    grid-row-start: 3;
 }
 
 #compile{
@@ -33,4 +35,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.msgFromBackend{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.msgFromBackend p{
+    margin: 0;
 }

@@ -5,19 +5,15 @@ let appello = sql.query("create table if not exists appello ("+
     "nomeAppello varchar(10) not null)"
 )
 
-let creaAppello = function(req){
-    // la richiesta al db arriva con successo!
-    // console.log("RICHIESTA INVIATA AL DB: ",req);
+let creaAppello = function(req,callback){
     sql.connect(function(){
         var nomeAppello = req.body.nomeAppello;
-        console.log("Connected for add appello! name of appello: "+nomeAppello);
         sql.query('insert into appello(nomeAppello) values(?)',[nomeAppello],function(error,result){
             if(error) {
-                console.log(error);
+                callback(error,null)
                 return false;
             }
-            console.log("appello inserito!");
-            return true;
+            callback(null,result);
         });
     })
 }

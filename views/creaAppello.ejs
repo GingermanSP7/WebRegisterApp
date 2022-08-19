@@ -1,7 +1,8 @@
 <%- include ("includes/_header.ejs") %>
 <div class="container2">
     <h1>Crea Appello</h1>
-    <form action="/api/creaAppello" method="POST" id="formAddAppello">
+    <div class="msgFromBackend"></div>
+    <form method="POST" id="formAddAppello">
         <div id="compile">
             <label for="nomeApello" class="labelCreateAppello">
                 <span>Nome Appello:</span> 
@@ -14,3 +15,6 @@
     </form>
 </div>
 <%- include ("includes/_footer.ejs") %>
+
+
+<!-- action="/api/creaAppello" -->
