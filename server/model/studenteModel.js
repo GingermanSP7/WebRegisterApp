@@ -22,4 +22,16 @@ function addStudente(req,callback){
     })
 }
 
-module.exports = {studente,addStudente};
+function getAllStudente(req,callback){
+    sql.connect(function(){
+        // console.log("Connected for ADD studente:", {matricola,nome,cognome});
+        sql.query("select * from studente",function(err,result){
+            if(!result){
+                callback(err,null);
+            }
+            callback(null,result);
+        })
+    })
+}
+
+module.exports = {studente,addStudente,getAllStudente};

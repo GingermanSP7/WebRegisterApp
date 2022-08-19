@@ -41,7 +41,12 @@ route.get("/creaAppello", (req, res) => {
  * @method GET/tesisti
  */
 route.get("/studenti", (req, res) => {
-    res.render("studenti");
+    studenteController.getAllStudente(req,function(err,result){
+        if (!result) {
+            res.status(400).send(err);
+        }
+        res.render("studenti", { studente: result })
+    })
 })
 
 /**

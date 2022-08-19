@@ -14,3 +14,12 @@ exports.addStudente = ((req,callback)=>{
     })
 })
 
+exports.getAllStudente =(req,callback)=>{
+    studenteModel.getAllStudente(req,function(err,result){
+        if(!result){
+            callback(err,null);
+        }
+        callback(null,result);
+    })
+}
+
