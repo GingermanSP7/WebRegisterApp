@@ -1,19 +1,18 @@
 /**
  * Sync data html with graphs
  */
-
-if(document.readyState == "loading"){ 
+if(window.location.pathname=='/'){ 
     counterEsaminati();
     counterRegistrati();
     $(document).ready(function () {
         $("#counterEsaminati").counterUp({
             delay: 10,
-            time: 1000
+            time: 800
         })
 
         $("#counterStudente").counterUp({
             delay: 10,
-            time: 1000
+            time: 600
         })
     });
 }

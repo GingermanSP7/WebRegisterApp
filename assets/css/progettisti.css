@@ -5,7 +5,7 @@
 #containerProgettisti{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 1fr 0.2fr auto 1fr;
+    grid-template-rows: 0.5fr 1fr 0.2fr auto auto 1fr;
     row-gap: 30px;
     margin-top: 30px;
 }
@@ -93,10 +93,9 @@
     width: 90%;
     justify-self: center;
     align-self: flex-start;
-    grid-row-start: 3;
     overflow: auto;
     border: 1px solid #f7f8f3;
-    grid-row-start: 5;
+    grid-row-start: 6;
 }
 
 #thead .trProgetto{
@@ -125,4 +124,22 @@
     border-radius: 10px;
     box-shadow: 5px 4px 4px #fcb91c8c;
 }
+
+#c_searchProgettista{
+    width: 90%;
+    display: flex;
+    justify-content: start;
+    grid-row-start: 5;
+    align-self: flex-end;
+    justify-self: center;
+}
+
+#c_searchProgettista> div>span{
+    margin-right: 20px;
+    color: #f7f8f3;
+    font-size: 23px;
+    font-weight: 500;
+    color: #FCB91C;
+}
+
 
