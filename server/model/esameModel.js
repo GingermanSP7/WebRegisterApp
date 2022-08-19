@@ -70,6 +70,9 @@ function getEsame(req,callback){
 
 function updateEsame(req,callback){
     sql.connect(function(){
+        let idAppelloToUpdate = req.query.idAppello;
+        let matricolaToUpdate = req.query.matricola;
+        
         let idAppello = req.body.idAppello;
         let matricola = req.body.matricola;
         let risposteDate = req.body.votoScritto;
@@ -83,10 +86,11 @@ function updateEsame(req,callback){
 
 
         console.log("Connesso al DB, UPDTAE esame: ",idAppello+" -- "+matricola);
-        sql.query("update esame set matricola = ?, risposteDate = ?, maxRisposte = ?, maxVotoScritto = ?, formula = ?, orale = ?, laboratorio = ?, votoComplessivo = ?, stato = ?",
-        [matricola,risposteDate,maxRisposte,maxVotoScritto,formula,orale,laboratorio,votoComplessivo,stato],
+        sql.query("update esame set matricola = ?, risposteDate = ?, maxRisposte = ?, maxVotoScritto = ?, formula = ?, orale = ?, laboratorio = ?, votoComplessivo = ?, stato = ? where matricola = ? and idAppello = ?",
+        [matricola,risposteDate,maxRisposte,maxVotoScritto,formula,orale,laboratorio,votoComplessivo,stato,matricolaToUpdate,idAppelloToUpdate],
         function(err,result){
             if(!result){
+                console.log("Errore model: ");
                 callback(err,null);
                 return;
             }

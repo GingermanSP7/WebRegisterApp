@@ -18,6 +18,7 @@ $(".updateEsame").submit(function(event){
 
     $.ajax(request).done(function(response){
         alert("Esame aggiornato con successo!");
+        window.location.reload();
     })
 })
 
@@ -56,7 +57,7 @@ $("#btn_removeForm").on("click",function(){
     $("#btn_removeForm").css({"display":"none"});
 })
 
-$("#formUpdateEsame").submit(function(event){
+$("#formAddEsame").submit(function(event){
     event.preventDefault();
 
     var unindexed_array = $(this).serializeArray();

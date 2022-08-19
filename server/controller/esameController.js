@@ -49,6 +49,7 @@ exports.updateEsame = (req,callback)=>{
     }
     esameModel.updateEsame(req,function(err,result){
         if(!result){
+            console.log("Errore controller: ");
             callback(err,null);
             return;
         }

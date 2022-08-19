@@ -166,6 +166,7 @@ route.get("/updateEsame",(req,res)=>{
         if(!result){
             console.log("Errore nella route!");
             res.status(400).send(err);
+            return;
         }
         res.status(200).render("updateEsame",{esame: result});
     });
@@ -176,8 +177,9 @@ route.put("/updateEsame/edit",(req,res)=>{
         if(!result){
             console.log("Errore nella route!");
             res.status(400).send(err);
+            return;
         }
-        res.status(200).send("OK!");
+        res.status(200).send(result);
     })
 })
 
@@ -185,6 +187,7 @@ route.post("/creaEsame",(req,res)=>{
     esameController.creaEsame(req,function(err,result){
         if(!result){
             res.status(400).send(err);
+            return;
         }
         res.status(200).send(result);
     })
