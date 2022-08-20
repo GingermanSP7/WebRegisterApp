@@ -18,13 +18,13 @@ Tale applicazione si compone di due parti: ✨
 - **Frontend** 
 - **Backend**
 
-## Frontend ## 🌍
+## Frontend 🌍
 La parte frontend dell'applicazione è stata realizzata con le seguenti tecnologie e linguaggi:
 - **EJS** o (Embedded Javascript) per definire la struttura html dell'applicazione e dare la possibilità di inserire codice Javascript all'interno della pagina stessa.
 - **CSS3** per fornire delle regole di stile all'applicazione 
 - **Javascript** utilizzato per fornire pagine interattive e creare delle richieste per la comunicazione con il backend
 
-## Backend ## 🏔
+## Backend 🏔
 La parte backend dell'applicazione è stata realizza con le seguenti tecnologie e linguaggi:
 - **Nodejs** framework basato sul linguaggio Javascript e utilizzato per la creazione della parte backend dell'applicazione
 - **Express** framwork utilizzato per la creazione del server effettivo lato backend
@@ -43,6 +43,6 @@ All'interno della cartella di lavoro si trovano diverse sotto-cartelle:
     - **Services** all'interno si trovano alcune API create per reinderizzare le richieste del frontend direttamente al controller 
  - **Views** cartella in cui sono depositati tutti i file ejs per la struttura delle pagine dell'applicazione 
  
-## Diagramma E-R ##
+## Diagramma E-R
 Il seguente diagramma è stato realizzato per avere un modello di riferimento su cui è stata realizzata la base di dati dell'applicazione.
 ![Progetto Web Programming](https://user-images.githubusercontent.com/83754920/185429963-952d28a7-16d9-4398-a8bc-9fde9904667a.jpg)
