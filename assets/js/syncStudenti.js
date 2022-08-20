@@ -4,17 +4,17 @@
 if(window.location.pathname=='/'){ 
     counterEsaminati();
     counterRegistrati();
-    $(document).ready(function () {
-        $("#counterEsaminati").counterUp({
-            delay: 10,
-            time: 800
-        })
+    // $(document).ready(function () {
+    //     $("#counterEsaminati").counterUp({
+    //         delay: 10,
+    //         time: 800
+    //     })
 
-        $("#counterStudente").counterUp({
-            delay: 10,
-            time: 600
-        })
-    });
+    //     $("#counterStudente").counterUp({
+    //         delay: 10,
+    //         time: 600
+    //     })
+    // });
 }
 
 function counterEsaminati(){
