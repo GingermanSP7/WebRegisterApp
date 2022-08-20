@@ -12,7 +12,6 @@ app.use(cors({origin: '*'}));
 app.use(bodyparser.urlencoded({extended:true}));
 
 app.set("view engine","ejs");
-//app.set("views",path.resolve(__dirname,"views"));
 
 app.use("/css",express.static(path.resolve(__dirname,"assets/css")));
 app.use("/appello/css",express.static(path.resolve(__dirname,"assets/css")));
