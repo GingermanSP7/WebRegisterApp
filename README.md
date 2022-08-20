@@ -29,7 +29,7 @@ La parte backend dell'applicazione è stata realizza con le seguenti tecnologie 
 - **Nodejs** framework basato sul linguaggio Javascript e utilizzato per la creazione della parte backend dell'applicazione
 - **Express** framwork utilizzato per la creazione del server effettivo lato backend
 - **SQL** utilizzato per la creazione della base di dati 
-- **mySQL** per la gestione delle basi di dati
+- **mySQL** per la gestione della base di dati
 
 # Struttura del Progetto 🏗
 All'interno della cartella di lavoro si trovano diverse sotto-cartelle:
