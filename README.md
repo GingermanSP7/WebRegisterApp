@@ -31,7 +31,7 @@ La parte backend dell'applicazione è stata realizza con le seguenti tecnologie 
 - **SQL** utilizzato per la creazione della base di dati 
 - **mySQL** per la gestione delle basi di dati
 
-#Struttura del Progetto 🏗
+# Struttura del Progetto 🏗
 All'interno della cartella di lavoro si trovano diverse sotto-cartelle:
 - **Assets** si trovano i file css, js ed eventuali immagini utilizzate all'interno dell'applicazione
 - **Server** all'interno si trova tutto il codice backend dell'applicazione e in più, anche le cartelle per il caricamento dei file .csv
