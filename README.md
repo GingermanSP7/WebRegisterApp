@@ -11,7 +11,7 @@ L'applicazione fornisce diverse funzionalità:
 - Possibilità di aggiungere dei trigger manuali per la gestione automatica degli studenti che hanno uno stato di 'Progettista'
 - Visualizzare tutti gli studenti registrati nella base di dati con la possibilità di modifare i singoli o eliminarli
 - Tenere traccia del numero di studenti che sono stati promossi o rimandati tramite un piccolo grafico all'interno della homepage
-- Tenere traccia del numero di studenti che hanno effettuato esami e del numero di studenti che hanno fatto almeno una prenotazione a un appello tramite un contatore situato nella pagina iniziale dell'applicazione*
+- Tenere traccia del numero di studenti che hanno effettuato esami e del numero di studenti che hanno fatto almeno una prenotazione a un appello tramite un contatore situato nella pagina iniziale dell'applicazione ❌
 - Ricercare studenti, esami o progetti tramite la sezione apposita nella pagina web. 
 
 Tale applicazione si compone di due parti: ✨
@@ -47,4 +47,4 @@ All'interno della cartella di lavoro si trovano diverse sotto-cartelle:
 Il seguente diagramma è stato realizzato per avere un modello di riferimento su cui è stata realizzata la base di dati dell'applicazione.
 ![Progetto Web Programming](https://user-images.githubusercontent.com/83754920/185429963-952d28a7-16d9-4398-a8bc-9fde9904667a.jpg)
 
-* Possono presentare alcuni bug 
+❌ Possono presentare alcuni bug 
