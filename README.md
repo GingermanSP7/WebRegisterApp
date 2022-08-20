@@ -46,3 +46,5 @@ All'interno della cartella di lavoro si trovano diverse sotto-cartelle:
 ## Diagramma E-R
 Il seguente diagramma è stato realizzato per avere un modello di riferimento su cui è stata realizzata la base di dati dell'applicazione.
 ![Progetto Web Programming](https://user-images.githubusercontent.com/83754920/185429963-952d28a7-16d9-4398-a8bc-9fde9904667a.jpg)
+
+* Possono presentare alcuni bug 
