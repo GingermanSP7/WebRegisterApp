@@ -31,8 +31,18 @@ $("#formAddAppello").submit(function(event){
             msg.style.alignItems = "center";
             
             msg.textContent = response.msg;
+
+            divMsg.style.display = "flex";
+
             divMsg.appendChild(msgImg);
             divMsg.appendChild(msg);
+
+            if(divMsg){
+                setTimeout(()=>{
+                    divMsg.removeChild(msg);
+                    divMsg.removeChild(msgImg);
+                },2000);
+            }
         }
     })
 })
