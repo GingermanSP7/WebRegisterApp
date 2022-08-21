@@ -37,7 +37,7 @@ All'interno della cartella di lavoro si trovano diverse sotto-cartelle:
 - **Server** all'interno si trova tutto il codice backend dell'applicazione e in più, anche le cartelle per il caricamento dei file .csv
     -**Controller** cartella per la gestione del pattern MVC che si occupa di interffacciarsi con le routes e di inoltrare le richieste ai file model
     - **Database** per la gestione della connessione al database e la creazione di trigger da poter attivare
-    - **Helper** cartella su cui dovranno essere depositati i file .csv e a cui farà riferimento l'applicazione (un'eventuale modifica riportata all'interno di questa cartella dovrà essere definita anche nel file route.js per il referimento di destinazione dei file .csv) ❗❗
+    - **Helper** cartella su cui dovranno essere depositati i file .csv e a cui farà riferimento l'applicazione (un'eventuale modifica riportata all'interno di questa cartella dovrà essere definita anche nel file route.js per il referimento di destinazione dei file .csv)
     - **Model** cartella per la gestione del pattern MVC che si occupa di prendere le richieste dal controller e interfacciarsi con il database per soddisfare tale richiesta
     - **Routes** all'interno si trova il file con tutte le route dell'applicazione
     - **Services** all'interno si trovano alcune API create per reinderizzare le richieste del frontend direttamente al controller 
@@ -46,5 +46,3 @@ All'interno della cartella di lavoro si trovano diverse sotto-cartelle:
 ## Diagramma E-R
 Il seguente diagramma è stato realizzato per avere un modello di riferimento su cui è stata realizzata la base di dati dell'applicazione.
 ![Progetto Web Programming](https://user-images.githubusercontent.com/83754920/185429963-952d28a7-16d9-4398-a8bc-9fde9904667a.jpg)
-
-❌ Possono presentare alcuni bug 
