@@ -96,6 +96,10 @@ body{
     font-weight: bold;
 }
 
+#appelli>span::after{
+    content: url("../img/carnivorous-plant.png");
+}
+
 #btn_addAppello{
     color: #f7f8f3;
     background-color: rgba(247, 68, 78, 0.6);
@@ -181,7 +185,8 @@ a:hover{
 }
 
 .rows:hover{
-    background-color: #f7444d76;
+    transition: 0.2s ease-out;
+    background-color: #f7444d69;
     color: #f7f8f3;
 }
 
