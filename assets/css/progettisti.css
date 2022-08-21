@@ -148,3 +148,44 @@
 }
 
 
+@media (max-width: 1125px){
+    #c_formAddProgettista{
+        height: 600px;
+    }
+
+    #formAddProgettista{
+        width: 70%;
+        height: 100%;
+    }
+
+    .trProgetto{
+        width: 2200px;
+    }
+
+}
+
+@media (max-width: 650px){
+    #c_formAddProgettista{
+        height: 800px;
+    }
+
+    #formAddProgettista{
+        width: 90%;
+        height: 100%;
+    }
+
+    #container_Progettisti{
+        row-gap: 15px;
+    }
+}
+
+@media (max-width: 610px){
+    #c_formAddProgettista{
+        height: 900px;
+    }
+
+    #container_Progettisti{
+        row-gap: 0px;
+    }
+
+}

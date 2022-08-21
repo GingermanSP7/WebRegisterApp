@@ -3,7 +3,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: 0.5fr 1fr 0.2fr auto auto auto;
     row-gap: 30px;
-    margin-top: 30px;
+    margin-top: 70px;
 }
 
 h1{
@@ -195,7 +195,7 @@ table{
         column-gap: 0px;
     }
 
-    .rows .azioni{
+    .rowAppello .azioni{
         display: flex;
         flex-direction: row;
         width: 100%;
@@ -211,30 +211,30 @@ table{
         width: 100%;
     }
 
-    .rows{
+    .rowAppello{
         display: grid;
         grid-template-columns: 150px 200px 200px 170px 200px 250px 100px 200px 300px 40px 200px !important;
     }
 }
 
-@media(max-width: 1024px){
+@media(max-width: 1330px){
     #formAddEsame{
         width: 60%;
     }
 }
 
 /* ---- MEDIA QUERY ----*/
-@media(max-width: 720px){
+@media(max-width: 970px){
     #formAddEsame{
         width: 90%;
     }
 }
 
 /* ---- MEDIA QUERY ----*/
-@media(max-width: 606px){
+@media(max-width: 650px){
 
     #c_formAddEsame{
-        height: 1024px;
+        height: 1224px;
     }
 
     #formAddEsame{

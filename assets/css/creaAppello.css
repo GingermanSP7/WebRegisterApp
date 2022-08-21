@@ -81,7 +81,7 @@
     }
 }
 
-@media (max-width: 635px){
+@media (max-width: 680px){
     .labelCreateAppello{
         flex-direction: column;
         row-gap: 10px;
