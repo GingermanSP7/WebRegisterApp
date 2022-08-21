@@ -96,7 +96,7 @@
             </thead>
             <tbody id="tbodyAppello">
                 <%for(var i=0; i<esame.length; i++){ %>
-                    <tr class="rows">
+                    <tr class="rows rowAppello">
                         <td><%= esame[i].idAppello %></td>
                         <td><%= esame[i].matricola %></td>
                         <td><%= esame[i].risposteDate %></td>
@@ -107,7 +107,7 @@
                         <td><%= esame[i].laboratorio %></td>
                         <td><%= esame[i].votoComplessivo %></td>
                         <td><%= esame[i].stato %></td>
-                        <td>
+                        <td class="azioni">
                             <button class="btn_action edit" title="modifica">
                                 <a href="/updateEsame?idAppello=<%=esame[i].idAppello%>&matricola=<%=esame[i].matricola%>"><box-icon name='edit-alt' type='solid' color='#FCB91C' ></box-icon></a>
                             </button>

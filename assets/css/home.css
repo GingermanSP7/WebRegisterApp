@@ -213,7 +213,7 @@ nav{
         top: 50px;
         gap: 0;
         flex-direction: column;
-        background-color: #00212d;
+        background-color: #00212d;  /* #002c3e */
         width: 100%;
         text-align: center;
         transition: 0.3s;
@@ -228,3 +228,6 @@ nav{
         left: 0;
     }
 }
+
+
+

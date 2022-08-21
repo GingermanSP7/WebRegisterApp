@@ -102,3 +102,54 @@ h1{
     align-self: center;
     font-size: 16px;
 }
+
+@media (max-width: 1450px){
+    #c_tableStudente{
+        overflow-x: auto;
+    }
+
+    #tableStudenti{
+        overflow: scroll !important;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #tbodyStudente,#thead{
+        width: 2200px;
+    }
+
+    #tbodyStudente tr{
+        column-gap: 100px;
+        align-items: center;
+        justify-self: end;
+        display: grid;
+        grid-template-columns: 200px 180px 200px 220px 200px 200px 150px 100px !important;
+        height: 70px;
+        width: 100%;    
+    }
+
+    .rowStudente .azioni{
+        display: flex;
+        flex-direction: row;
+         justify-content: center;
+    }
+
+    #rowStudente{
+        align-items: center;
+        display: grid;
+        grid-template-columns: 150px 150px 200px 150px 200px 200px 100px 100px !important;
+        height: 70px;
+    }
+}
+
+@media (max-width: 1024px){
+    #c_studente{
+        margin-top: 70px;
+    }
+}
+
+@media (max-width: 521px){
+    #c_studente>h1{
+        text-align: center;
+    }
+}

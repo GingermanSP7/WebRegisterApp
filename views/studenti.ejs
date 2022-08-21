@@ -25,7 +25,7 @@
             </thead>
             <tbody id="tbodyStudente">
                 <%for(var i=0; i<studente.length; i++){ %>
-                <tr class="rows" id="rowStudente">
+                <tr class="rows rowStudente">
                     <td><%= studente[i].Matricola %></td>
                     <td><%= studente[i].Nome %></td>
                     <td><%= studente[i].Cognome %></td>
@@ -33,7 +33,7 @@
                     <td><%= studente[i].codCdsIscr %></td>
                     <td><%= studente[i].Regolamento %></td>
                     <td><%= studente[i].cfu %></td>
-                    <td>
+                    <td class="azioni">
                         <button class="btn_action edit" title="modifica">
                             <a href="/updateStudente?matricola=<%= studente[i].Matricola %>"><box-icon name='edit-alt' type='solid' color='#FCB91C' ></box-icon></a>
                         </button>

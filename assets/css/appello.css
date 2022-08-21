@@ -1,9 +1,9 @@
 #containerAppello{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 1fr 0.2fr auto auto 1fr;
+    grid-template-rows: 0.5fr 1fr 0.2fr auto auto auto;
     row-gap: 30px;
-    margin-top: 30px;
+    margin-top: 70px;
 }
 
 h1{
@@ -77,7 +77,6 @@ h1{
     width: 90%;
     justify-self: center;
     align-self: flex-start;
-    grid-row-start: 3;
     overflow: auto;
     border: 1px solid #f7f8f3;
     grid-row-start: 6;
@@ -170,35 +169,90 @@ table{
     color: #FCB91C;
 }
 
-/* 
-il codice css lo prende da studenti.css
-.c_search>button{
-    border: 0px none transparent;
-    background-color: transparent;
-}
-
-.c_search>input{
-    font-family: inherit;
-    width: 100%;
-    border: 0;
-    border-bottom: 2px solid #9b9b9b;
-    outline: 0;
-    font-size: 1.3rem;
-    color: #f7f8f3;
-    padding: 7px 0;
-    background: transparent;
-    transition: border-color 0.2s;
-}
-
-
-.c_search{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-} */
-
 .c_search:hover{
     cursor: pointer;
+}
+
+/* ---- MEDIA QUERY ----*/
+@media(max-width:1550px){
+    #tableAppello_container{
+        overflow-x: auto;
+    }
+
+    #tableAppello{
+        overflow: scroll !important;
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    #thead{
+        height: auto;
+        width: 2050px;
+    }
+
+    #tbodyAppello tr{
+        column-gap: 0px;
+    }
+
+    .rowAppello .azioni{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: end;
+    }
+
+    .trAppello{
+        column-gap: 20px;
+        align-items: center;
+        display: grid;
+        grid-template-columns: 150px 150px 200px 150px 200px 200px 100px 200px 200px 100px 200px !important;
+        height: 70px;
+        width: 100%;
+    }
+
+    .rowAppello{
+        display: grid;
+        grid-template-columns: 150px 200px 200px 170px 200px 250px 100px 200px 300px 40px 200px !important;
+    }
+}
+
+@media(max-width: 1330px){
+    #formAddEsame{
+        width: 60%;
+    }
+}
+
+/* ---- MEDIA QUERY ----*/
+@media(max-width: 970px){
+    #formAddEsame{
+        width: 90%;
+    }
+}
+
+/* ---- MEDIA QUERY ----*/
+@media(max-width: 650px){
+
+    #c_formAddEsame{
+        height: 1224px;
+    }
+
+    #formAddEsame{
+        height: 100%;
+    }
+
+    .labelUpdateEsame{
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #formAppello div{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        justify-content: center;
+        align-items: center;
+    }
 }

@@ -75,7 +75,7 @@ body{
 #body_container{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 50px auto;
+    grid-template-rows: 150px auto;
 }
 
 #header>h1{
@@ -85,6 +85,7 @@ body{
 #h_container{
     display: flex;
     justify-content: space-around;
+    align-items: center;
     flex-direction: row;
     height: 75px;
 }
@@ -137,6 +138,7 @@ body{
     width: 100%;
     border: 1px solid #f7f8f3;
     border-radius: 5px;
+    margin-top: -50px;
 }
 
 #tab_appelli{
@@ -195,7 +197,28 @@ td button{
     border: 0px none transparent;
 }
 
+@media(max-width: 500px){
+    #header>h1{
+        text-align: center;
+    }
+}
 
+@media(max-width: 450px){
+    #h_container{
+        row-gap: 10px;
+        flex-wrap: wrap;
+        height: auto;
+    }
+
+    #appelli{
+        width: 100%;
+        text-align: center;
+    }
+
+    #c_Appelli{
+        margin-top: 0px;
+    }
+}
 
 
 

@@ -46,10 +46,8 @@ let url = "";
 $("#btn_addEsame").on("click",function(){
     $("#c_formAddEsame").css({"display":"flex"});
     $("#btn_removeForm").css({"display":"block"});
-    (function(){
-        url = window.location.href.split("=");
-        document.getElementById("idAppelloForm").value = url[1];  // con le ultime due righe c'è il bug del counter nella home 
-    }());
+    url = window.location.href.split("=");
+    document.getElementById("idAppelloForm").value = url[1];  // con le ultime due righe c'è il bug del counter nella home 
 })
 
 $("#btn_removeForm").on("click",function(){

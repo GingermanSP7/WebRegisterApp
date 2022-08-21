@@ -27,7 +27,7 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    width: 40%;
+    width: 60%;
     border: 1px solid white;
     height: 300px;
 }
@@ -37,6 +37,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    column-gap: 30px;
+    height: 50px;
+    width: 100%;
+}
+
+.labelCreateAppello span{
+    font-size: 22px;
+    font-weight: bold;
+    color: #FCB91C;
+}
+
+#nomeAppello{
+    border-radius: 5px;
+    font-size: 17px;
+    text-align: center;
+    font-weight: bold;
+    padding: 0;
+    margin: 0%;
+    height: 40px !important;
 }
 
 .msgFromBackend{
@@ -48,4 +67,24 @@
 
 .msgFromBackend p{
     margin: 0;
+}
+
+#submitData{
+    background-color: #FCB91C !important;
+    color: black !important;
+    border: 1px solid black !important;
+}
+
+@media (max-width:1024px){
+    #compile{
+        width: 90%;
+    }
+}
+
+@media (max-width: 680px){
+    .labelCreateAppello{
+        flex-direction: column;
+        row-gap: 10px;
+        height: 50%;
+    }
 }
