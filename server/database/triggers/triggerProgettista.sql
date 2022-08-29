@@ -1,6 +1,6 @@
 DELIMITER !
 create trigger inserisciProgettista 
-after insert on esame 
+after update on esame 
 for each row
 BEGIN
 	if(new.stato = "Progetto" or new.stato = "progetto") then
