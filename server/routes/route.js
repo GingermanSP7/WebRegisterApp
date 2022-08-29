@@ -249,41 +249,6 @@ route.post("/uploadFile", (req, res) => {
         .catch((err) => {
             console.log(err.message);
         })
-
-
-    //leggere il file per l'esame e salvare i risultati in esame
-    // let nomeFile_appello = req.body.nomeFile[1];
-    // console.log("NOME FILE APPELLO: ",nomeFile_appello);
-    // CSVToJSON().fromFile("C:/Users/salva/OneDrive/Desktop/WebRegisterApp2.0/server/helper/appelli/"+nomeFile_appello)
-    //     .then((arr) => {
-    //         arr.forEach((esame) => {
-    //             console.log("ESAME: ", esame);
-    //             esameController.creaEsame({
-    //                 body: {
-    //                     idAppello: `${esame.idAppello}`,
-    //                     matricola: `${esame.matricola}`,
-    //                     maxRisposte: `${esame.maxRisposte}`,
-    //                     risposteDate: `${esame.risposteDate}`,
-    //                     maxVotoScritto: `${esame.maxVotoScritto}`,
-    //                     formula: `${esame.formula}`,
-    //                     orale: `${esame.orale}`,
-    //                     laboratorio: `${esame.laboratorio}`,
-    //                     votoComplessivo: `${esame.votoComplessivo}`,
-    //                     stato: `${esame.stato}`
-    //                 }
-    //             }, function (err, result) {
-    //                 if (!result) {
-    //                     console.log(err);
-    //                 }
-    //             })
-    //         })
-    //     })
-    //     .then((response) => {
-    //         console.log(response)
-    //     })
-    //     .catch((err) => {
-    //         console.log(err.sqlMessage);
-    //     })
 });
 
 route.post("/creaProgettista",(req,res)=>{
