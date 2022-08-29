@@ -12,7 +12,7 @@ function addStudente(req,callback){
     let cfu = req.body.cfu;
 
     sql.connect(function(){
-        sql.query("insert into studente(Matricola,Nome,Cognome,cf,codCdsIscr,Regolamento,cfu) values(?,?,?,?,?,?,?)",[matricola,nome,cognome,cf,codCdsIscr,regolamento,cfu],function(err,result){
+        sql.query("insert ignore into studente(Matricola,Nome,Cognome,cf,codCdsIscr,Regolamento,cfu) values(?,?,?,?,?,?,?)",[matricola,nome,cognome,cf,codCdsIscr,regolamento,cfu],function(err,result){
             if(!result){
                 callback(err,null);
             }
