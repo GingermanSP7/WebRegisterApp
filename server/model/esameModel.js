@@ -77,7 +77,7 @@ function updateEsame(req,callback){
         
         let idAppello = req.body.idAppello;
         let matricola = req.body.matricola;
-        let risposteDate = req.body.votoScritto;
+        let risposteDate = req.body.risposteEsatte;
         let maxRisposte = req.body.maxDomande;
         let maxVotoScritto = req.body.maxVotoScritto;
         let formula = req.body.formula;
