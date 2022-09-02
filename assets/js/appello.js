@@ -44,6 +44,9 @@ $("#formAddAppello").submit(function(event){
                 },2000);
             }
         }
+        setTimeout(()=>{
+            window.location.href = "/visualizzaAppelli";
+        },1500)
     })
 })
 
