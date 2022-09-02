@@ -88,14 +88,14 @@ table{
 
 #thead .trAppello{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr 1fr 1fr 1fr 1fr 1fr !important;
     grid-template-rows: auto;
     color: #f7f8f3;
 }
 
 #tbodyAppello tr, #thead tr{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr 1fr 1fr 1fr 1fr 1fr !important;
     grid-template-rows: auto;
     height: 50px;
     font-size: 20px;
@@ -110,8 +110,10 @@ table{
 #tbodyAppello tr td{
     justify-self: center;
     align-self: center;
+    flex-wrap: wrap;
     font-size: 16px;
 }
+
 
 #formAddEsame{
     display: flex;
@@ -151,6 +153,10 @@ table{
     font-size: 15px;
 }
 
+.fontSize14{
+    font-size: 14px;
+}
+
 #c_searchAppello{
     width: 90%;
     display: flex;
@@ -172,6 +178,7 @@ table{
 .c_search:hover{
     cursor: pointer;
 }
+
 
 /* ---- MEDIA QUERY ----*/
 @media(max-width:1550px){
