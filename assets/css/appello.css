@@ -190,12 +190,11 @@ table{
         overflow: scroll !important;
         display: flex;
         flex-direction: column;
-        
     }
 
     #thead{
         height: auto;
-        width: 2050px;
+        width: 2200px;
     }
 
     #tbodyAppello tr{
@@ -206,7 +205,7 @@ table{
         display: flex;
         flex-direction: row;
         width: 100%;
-        justify-content: end;
+        justify-content: center;
     }
 
     .trAppello{
@@ -221,6 +220,10 @@ table{
     .rowAppello{
         display: grid;
         grid-template-columns: 150px 200px 200px 170px 200px 250px 100px 200px 300px 40px 200px !important;
+    }
+
+    #tbodyAppello{
+        width: 2200px;
     }
 }
 

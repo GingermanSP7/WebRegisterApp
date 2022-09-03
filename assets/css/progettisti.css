@@ -5,9 +5,9 @@
 #containerProgettisti{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 1fr 0.2fr auto auto 1fr;
+    grid-template-rows: 0.5fr 0.2fr auto auto 1fr;
     row-gap: 30px;
-    margin-top: 30px;
+    margin-top: 100px;
 }
 
 #divFormProgetto{
@@ -98,14 +98,14 @@
     grid-row-start: 6;
 }
 
-#thead .trProgetto{
+.theadProgettista .trProgetto{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 2fr 1fr !important;
     grid-template-rows: auto;
     color: #f7f8f3;
 }
 
-#tbodyProgetto tr, #thead tr{
+#tbodyProgetto tr, .theadProgettista tr{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 2fr 1fr;
     grid-template-rows: auto;
@@ -158,10 +158,16 @@
         height: 100%;
     }
 
-    .trProgetto{
-        width: 2200px;
+    #tableProgettista{
+        overflow: scroll !important;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
     }
 
+    .trProgetto{
+        width: 1500px;
+    }
 }
 
 @media (max-width: 650px){

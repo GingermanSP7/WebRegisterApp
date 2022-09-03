@@ -1,5 +1,3 @@
-
-
 #c_studente{
     display: grid;
     grid-template-columns: 1fr;
@@ -78,7 +76,7 @@ h1{
 
 #thead .trStudente{
     display: grid;
-    grid-template-columns: 1fr 1.5fr 1.5fr 1.5fr 1.2fr 1.5fr 1fr 1fr;
+    grid-template-columns: 1fr 1.5fr 1.5fr 1.5fr 1.2fr 1.5fr 1fr 1fr !important;
     grid-template-rows: auto;
     color: #f7f8f3;
 }
