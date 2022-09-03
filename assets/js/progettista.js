@@ -52,7 +52,7 @@ $("#formAddProgettista").submit(function(event){
 
     $.ajax(request).done(function(){
         alert("Progettista aggiunto con successo!");
-        location.reload();
+        window.location.href = "/progettisti";
     })
 })
 
@@ -76,7 +76,7 @@ $(".updateProgettista").submit(function(event){
 
     $.ajax(request).done(function(){
         alert("Progettista aggiornato con successo!");
-        location.reload();
+        window.location.href = "/progettisti";
     })
 })
 

@@ -7,7 +7,7 @@ $(".updateEsame").submit(function(event){
     $.map(unindexed_array, function(n,i){
         data[n['name']] = n['value'];
     });
-
+    
     console.log("DATA TO UPDATE: ",data);
 
     var request = {
@@ -18,7 +18,7 @@ $(".updateEsame").submit(function(event){
 
     $.ajax(request).done(function(response){
         alert("Esame aggiornato con successo!");
-        window.location.reload();
+        window.location.href = `/appello?idAppello=${data.idAppello}`;
     })
 })
 

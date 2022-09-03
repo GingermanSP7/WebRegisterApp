@@ -70,6 +70,7 @@ $("#formUpdateAppello").submit(function(event){
 
     $.ajax(request).done(function(response){
         alert("Appello aggiornato con successo!");
+        window.location.href = `/visualizzaAppelli`;
     })
 })
 

@@ -60,7 +60,7 @@ if(window.location.pathname == "/updateStudente"){
 
         $.ajax(request).done(function(){
             alert("Studente aggiornato con successo!");
-            location.reload();
+            window.location.href = "/studenti";
         })
     })
 }
