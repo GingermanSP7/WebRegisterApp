@@ -23,6 +23,7 @@ function creaEsame(req,callback){
                 callback(err,null);
                 return;
             }
+            console.log("Esame inserito con successo!")
             callback(null,result);
             return;
         })
