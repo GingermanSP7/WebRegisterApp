@@ -251,7 +251,6 @@ route.post("/uploadFile", (req, res) => {
             console.log(err.message);
             return;
         })
-        res.redirect("/appello?idAppello="+req.query.idAppello);
 });
 
 route.post("/creaProgettista",(req,res)=>{
