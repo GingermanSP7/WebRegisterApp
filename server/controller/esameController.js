@@ -18,6 +18,7 @@ exports.creaEsame = (req,callback)=>{
     else {
         req.body.formula = 'Formula non valida!';
     }
+    console.log("BODY CONTROLLER ESAME: ",req.body);
     esameModel.creaEsame(req,function(err,result){
         if(!result){
             callback(err,null);

@@ -6,9 +6,13 @@ function sendFile(){
     let names = [];
     names.push(file1[file1.length-1]);
 
+    let strAppello = window.location.href.split("=");
+    let valueIdAppello = parseInt(strAppello[1]);
+    
+
     $.ajax({
         type: "POST",
-        url: "/uploadFile",
+        url: `/uploadFile?idAppello=${valueIdAppello}`,
         data: { nomeFile: names},
         dataType: "json",
         success: function(){

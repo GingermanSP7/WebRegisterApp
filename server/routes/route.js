@@ -5,6 +5,7 @@ const CSVToJSON = require("csvtojson");
 const studenteController = require("../controller/studenteController");
 const esameController = require("../controller/esameController");
 const progettistaController = require("../controller/progettistaController"); 
+const { re } = require("mathjs");
 
 /**
  * @Description route homepage
@@ -225,10 +226,10 @@ route.post("/uploadFile", (req, res) => {
                         }
                     }
                 });
-
+                
                 esameController.creaEsame({
                     body:{
-                        idAppello: `${studente.idAppello}`,
+                        idAppello: `${parseInt(req.query.idAppello)}`,
                         matricola: `${studente.Matricola}`,
                         maxRisposte: 0,
                         risposteDate: 0,
@@ -248,7 +249,9 @@ route.post("/uploadFile", (req, res) => {
         })
         .catch((err) => {
             console.log(err.message);
+            return;
         })
+        res.redirect("/appello?idAppello="+req.query.idAppello);
 });
 
 route.post("/creaProgettista",(req,res)=>{
