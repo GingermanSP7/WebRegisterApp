@@ -81,7 +81,6 @@
         <table id="tableAppello">
             <thead id="thead">
                 <tr class="trAppello">
-                    <th>ID_Appello</th>
                     <th>Matricola</th>
                     <th>Risp. Date</th>
                     <th>Max</th>
@@ -97,7 +96,6 @@
             <tbody id="tbodyAppello">
                 <%for(var i=0; i<esame.length; i++){ %>
                     <tr class="rows rowAppello">
-                        <td><%= esame[i].idAppello %></td>
                         <td><%= esame[i].matricola %></td>
                         <td><%= esame[i].risposteDate %></td>
                         <td><%= esame[i].maxRisposte %></td>

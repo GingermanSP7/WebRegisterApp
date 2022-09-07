@@ -104,7 +104,7 @@ if(window.location.pathname == "/appello"){
         let tr = table.rows;
 
         for(let i=1;i<tr.length;i++){       
-            td = tr[i].children[1];
+            td = tr[i].children[0];
             if(td){
                 txtValue = td.textContent
                 if(txtValue.indexOf(str)>-1){

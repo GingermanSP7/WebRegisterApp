@@ -246,6 +246,7 @@ route.post("/uploadFile", (req, res) => {
                     }
                 })
             })
+            res.redirect("appello?idAppello="+req.query.idAppello);
         })
         .catch((err) => {
             console.log(err.message);
