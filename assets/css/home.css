@@ -90,6 +90,7 @@ nav{
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+    flex-direction: column;
     column-gap: 30px;
     row-gap: 50px;
 }
