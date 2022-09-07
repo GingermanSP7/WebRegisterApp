@@ -95,7 +95,7 @@ if(window.location.pathname == "/visualizzaAppelli"){
 }
 
 if(window.location.pathname == "/appello"){
-    let input = document.querySelector("#searchAppelloByMatricola");
+    let input = document.querySelector("#searchEsameByMatricola");
     
     input.addEventListener("input", () => {
         let td,txtValue;

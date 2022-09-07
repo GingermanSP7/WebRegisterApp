@@ -157,7 +157,7 @@ table{
     font-size: 14px;
 }
 
-#c_searchAppello{
+#c_searchEsame{
     width: 90%;
     display: flex;
     justify-content: start;
@@ -167,7 +167,7 @@ table{
 
 }
 
-#c_searchAppello> div>span{
+#c_searchEsame> div>span{
     margin-right: 20px;
     color: #f7f8f3;
     font-size: 23px;
