@@ -184,6 +184,11 @@ table{
 }
 
 /* ---- MEDIA QUERY ----*/
+@media(max-width:1700px){
+    #formAddEsame{
+        width: 70%;
+    }
+}
 @media(max-width:1550px){
     #tableAppello_container{
         overflow-x: auto;
@@ -232,16 +237,23 @@ table{
 
 @media(max-width: 1330px){
     #formAddEsame{
-        width: 60%;
+        text-align: center;
+        height: 100%;
+
+    }
+    #c_formAddEsame{
+        height: 800px;
     }
 }
 
-/* ---- MEDIA QUERY ----*/
-@media(max-width: 970px){
-    #formAddEsame{
-        width: 90%;
+@media(max-width: 800px){
+    #c_searchEsame{
+        display: flex;
+        flex-direction: column;
+        row-gap: 50px;
     }
 }
+
 
 /* ---- MEDIA QUERY ----*/
 @media(max-width: 650px){
