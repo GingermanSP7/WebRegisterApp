@@ -5,7 +5,7 @@ const math = require("mathjs");
 exports.creaEsame = (req,callback)=>{
     const formula = req.body.formula.toLowerCase();
     let formulaNoSpace = formula.replaceAll(" ", '');
-    if (formulaNoSpace.includes("math.round(")) {        //fare la prova con startsWith()
+    if (formulaNoSpace.includes("math.round(")) {        
         let exp = formulaNoSpace.substr(11, formulaNoSpace.length - 12);
         let votoScrittoOrale = Math.round(math.evaluate(exp));
 
@@ -70,7 +70,7 @@ exports.updateEsame = (req,callback)=>{
      */
      const formula = req.body.formula.toLowerCase();
      let formulaNoSpace = formula.replaceAll(" ",'');
-     if(formulaNoSpace.includes("math.round(")){        //fare la prova con startsWith()
+     if(formulaNoSpace.includes("math.round(")){        
          let exp = formulaNoSpace.substr(11,formulaNoSpace.length-12);
          let votoScrittoOrale = Math.round(math.evaluate(exp));
  
