@@ -160,7 +160,7 @@ table{
 #c_searchEsame{
     width: 90%;
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-self: flex-end;
     grid-row-start: 5;
     justify-self: center;
@@ -179,6 +179,9 @@ table{
     cursor: pointer;
 }
 
+.width350{
+    width: 350px;
+}
 
 /* ---- MEDIA QUERY ----*/
 @media(max-width:1550px){

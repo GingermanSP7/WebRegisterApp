@@ -330,6 +330,13 @@ route.delete("/deleteProgettista",(req,res)=>{
     })
 })
 
-
+route.post("/updateFormulaAllEsami",(req,res)=>{
+    esameController.updateFormulaAllEsami(req,function(err,result){
+        if(!result){
+            res.status(400).send(err);
+        }
+        res.status(200).send(result);
+    })
+})
 
 module.exports = route;

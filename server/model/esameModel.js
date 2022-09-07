@@ -102,6 +102,24 @@ function updateEsame(req,callback){
     })
 }
 
+function updateFormulaAllEsami(req,callback){
+    sql.connect(function(){
+        let idAppello = req.query.idAppello;
+        let formula = req.body.formula;
+
+        sql.query("update esame set formula = ? where idAppello = ?",
+        [formula,idAppello],
+        function(err,result){
+            if(!result){
+                console.log("Errore model: ");
+                callback(err,null);
+                return;
+            }
+            callback(null,result);
+        })
+    })
+}
+
 function deleteEsame(req,callback){
     sql.connect(function(){
         let idAppello = req.query.idAppello;
@@ -143,4 +161,4 @@ function countRimandati(req,callback){
     })
 }
 
-module.exports = {esame,creaEsame,getAllEsame,getCountEsame,getEsame,updateEsame,deleteEsame,countPromossi,countRimandati};
+module.exports = {esame,creaEsame,getAllEsame,getCountEsame,getEsame,updateEsame,deleteEsame,countPromossi,countRimandati,updateFormulaAllEsami };

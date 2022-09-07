@@ -129,3 +129,17 @@ exports.countRimandati = (req,res)=>{
     })
 }
 
+exports.updateFormulaAllEsami = (req,callback)=>{
+    if(Object.keys(req.query).length == 0){                   
+        callback({msg: "Errore, nessun parametro passato!"},null);
+        return;
+    }
+    esameModel.updateFormulaAllEsami(req,function(err,result){
+        if(!result){
+            callback(err,null);
+            return;
+        }
+        callback(null,result);
+    })
+}
+

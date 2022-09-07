@@ -1,23 +1,23 @@
-$("#formAddAppello").submit(function(event){
+$("#formAddAppello").submit(function (event) {
     event.preventDefault();
 
     var unindexed_array = $(this).serializeArray();
     var data = {};
 
-    $.map(unindexed_array, function(n,i){
+    $.map(unindexed_array, function (n, i) {
         data[n['name']] = n['value'];
     });
 
-    console.log("DATA TO UPDATE: ",data);
+    console.log("DATA TO UPDATE: ", data);
 
     var request = {
-        "url" : `/creaAppello/add`,
+        "url": `/creaAppello/add`,
         "method": "POST",
         "data": data
     }
 
-    $.ajax(request).done(function(response){
-        if(typeof response !== 'undefined'){
+    $.ajax(request).done(function (response) {
+        if (typeof response !== 'undefined') {
             let msg = document.createElement("p");
             let msgImg = document.createElement("img");
             let divMsg = document.getElementsByClassName("msgFromBackend")[0];
@@ -29,7 +29,7 @@ $("#formAddAppello").submit(function(event){
             msg.style.color = "#FCB91C";
             msg.style.fontSize = "18px";
             msg.style.alignItems = "center";
-            
+
             msg.textContent = response.msg;
 
             divMsg.style.display = "flex";
@@ -37,56 +37,56 @@ $("#formAddAppello").submit(function(event){
             divMsg.appendChild(msgImg);
             divMsg.appendChild(msg);
 
-            if(divMsg){
-                setTimeout(()=>{
+            if (divMsg) {
+                setTimeout(() => {
                     divMsg.removeChild(msg);
                     divMsg.removeChild(msgImg);
-                },2000);
+                }, 2000);
             }
         }
-        setTimeout(()=>{
+        setTimeout(() => {
             window.location.href = "/visualizzaAppelli";
-        },1500)
+        }, 1500)
     })
 })
 
-$("#formUpdateAppello").submit(function(event){
+$("#formUpdateAppello").submit(function (event) {
     event.preventDefault();
 
     var unindexed_array = $(this).serializeArray();
     var data = {};
 
-    $.map(unindexed_array, function(n,i){
+    $.map(unindexed_array, function (n, i) {
         data[n['name']] = n['value'];
     });
 
-    console.log("DATA TO UPDATE: ",data);
+    console.log("DATA TO UPDATE: ", data);
 
     var request = {
-        "url" : `/updateAppello/edit/${data.idAppello}`,
+        "url": `/updateAppello/edit/${data.idAppello}`,
         "method": "PUT",
         "data": data
     }
 
-    $.ajax(request).done(function(response){
+    $.ajax(request).done(function (response) {
         alert("Appello aggiornato con successo!");
         window.location.href = `/visualizzaAppelli`;
     })
 })
 
 //DELETE APPELLO
-if(window.location.pathname == "/visualizzaAppelli"){
+if (window.location.pathname == "/visualizzaAppelli") {
     $ondelete = $("table tbody tr td button a.delete");
-    $ondelete.click(function(){
+    $ondelete.click(function () {
         var id = $(this).attr("data-id");
 
         var request = {
-            "url" : `visualizzaAppelli/api/deleteAppello/${id}`,
+            "url": `visualizzaAppelli/api/deleteAppello/${id}`,
             "method": "DELETE",
         }
 
-        if(confirm("Vuoi davvero eliminare l'appello?")){
-            $.ajax(request).done(function(response){
+        if (confirm("Vuoi davvero eliminare l'appello?")) {
+            $.ajax(request).done(function (response) {
                 alert("Appello eliminato con successo!");
                 location.reload();
             })
@@ -94,23 +94,42 @@ if(window.location.pathname == "/visualizzaAppelli"){
     })
 }
 
-if(window.location.pathname == "/appello"){
+function updateFormula() {
+    let formula = document.getElementById("formulaAppello").value.toLowerCase().replaceAll(" ",'');
+    let btnFormula = document.getElementById("sendFormula");
+    let idAppello = window.location.href.split("=")[1];
+    btnFormula.addEventListener("click", () => {
+        var request = {
+            "url": `/updateFormulaAllEsami?idAppello=${parseInt(idAppello)}`,
+            "method": "POST",
+            "data": {
+                formula: formula
+            }
+        }
+
+        $.ajax(request).done(function (response) {
+            location.reload();
+        })
+    })
+}
+
+if (window.location.pathname == "/appello") {
     let input = document.querySelector("#searchEsameByMatricola");
-    
+
     input.addEventListener("input", () => {
-        let td,txtValue;
+        let td, txtValue;
         let str = input.value.toUpperCase();
         let table = document.getElementById("tableAppello")
         let tr = table.rows;
 
-        for(let i=1;i<tr.length;i++){       
+        for (let i = 1; i < tr.length; i++) {
             td = tr[i].children[0];
-            if(td){
+            if (td) {
                 txtValue = td.textContent
-                if(txtValue.indexOf(str)>-1){
+                if (txtValue.indexOf(str) > -1) {
                     tr[i].style.display = "";
                 }
-                else{
+                else {
                     tr[i].style.display = "none";
                 }
             }
