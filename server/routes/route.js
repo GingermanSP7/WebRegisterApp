@@ -263,38 +263,6 @@ route.post("/creaProgettista",(req,res)=>{
     })
 })
 
-route.post("/uploadFileProgettista",(req,res)=>{
-    let nomeFile_Progettisti = req.body.nomeFile;
-    console.log(req.body.nomeFile);
-    CSVToJSON().fromFile("C:/Users/salva/OneDrive/Desktop/WebRegisterApp2.0/server/helper/progettisti/" + nomeFile_Progettisti)
-        .then((arr) => {
-            arr.forEach((progettista) => {
-                //console.log(progettista);
-                progettistaController.creaProgettista({
-                    body: {
-                        idAppello: `${progettista.ID_Appello}`,
-                        matricola: `${progettista.Matricola}`,
-                        voto: `${progettista.Voto}`,
-                        votoProgetto: `${progettista.Voto_Progetto}`,
-                        votoFinale: `${progettista.Voto_Finale}`,
-                        dataConsegna: `${progettista.Data_Consegna}`,
-                        esito: `${progettista.Esito}`,
-                        titoloProgetto: `${progettista.Titolo_Progetto}`
-                    }
-                }, function (err, result) {
-                    if (!result && err) {
-                        if(err.code == "ER_DUP_ENTRY"){
-                            console.log("Errore, stai cercando di iserire elementi già presenti!");
-                        }
-                    }
-                })
-            })
-        })
-        .catch((err) => {
-            console.log(err.message);
-        })
-})
-
 route.get("/updateProgettista",(req,res)=>{
     const request = {
         body: {

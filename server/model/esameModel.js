@@ -6,8 +6,8 @@ function creaEsame(req,callback){
     sql.connect(function(){
         const idAppello = req.body.idAppello;
         const matricola = req.body.matricola;
-        const maxRisposte = req.body.maxRisposte;
-        const risposteDate = req.body.risposteDate;
+        const maxRisposte = req.body.maxDomande;
+        const risposteDate = req.body.risposteEsatte;
         const maxVotoScritto = req.body.maxVotoScritto;
         const formula = req.body.formula;
         const orale = req.body.orale;
