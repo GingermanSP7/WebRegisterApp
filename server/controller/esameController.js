@@ -93,7 +93,7 @@ exports.updateEsame = (req, callback) => {
         if(exp.includes("$maxvotoscritto")){
             exp = exp.replace("$maxvotoscritto",req.body.maxVotoScritto);
         }
-        console.log("MI SONO ROTTO: ",exp);
+        console.log("espressione: ",exp);
         let votoScrittoOrale = Math.round(math.evaluate(exp));
 
         console.log("NON AGGIORNATO: ", req.body);
