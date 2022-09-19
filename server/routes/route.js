@@ -5,7 +5,8 @@ const CSVToJSON = require("csvtojson");
 const studenteController = require("../controller/studenteController");
 const esameController = require("../controller/esameController");
 const progettistaController = require("../controller/progettistaController"); 
-const { re } = require("mathjs");
+const xlsx = require("xlsx");
+const fs = require("fs");
 
 /**
  * @Description route homepage
@@ -205,19 +206,24 @@ route.post("/uploadFile", (req, res) => {
 
     //leggere il file per gli studenti prenotati e salvare gli studenti nel db
     let nomeFile_studPrenotati = req.body.nomeFile[0];
-    CSVToJSON().fromFile("C:/Users/salva/OneDrive/Desktop/WebRegisterApp2.0/server/helper/studPrenotati/" + nomeFile_studPrenotati)
+    let estensione = nomeFile_studPrenotati.split(".");
+    if(estensione[estensione.length-1] == "xlsx"){
+        const fileXlsx = xlsx.readFile("C:/Users/salva/OneDrive/Desktop/WebRegisterApp2.0/server/helper/studPrenotati/"+nomeFile_studPrenotati);
+        xlsx.writeFile(fileXlsx,"C:/Users/salva/OneDrive/Desktop/WebRegisterApp2.0/server/helper/studPrenotati/"+estensione[0]+".csv",{bookType: "csv"});
+    }
+    CSVToJSON().fromFile("C:/Users/salva/OneDrive/Desktop/WebRegisterApp2.0/server/helper/studPrenotati/" + estensione[0]+".csv",{start: 22})
         .then((arr) => {
             arr.forEach((studente) => {
-                //console.log(studente);
+                console.log(studente);
                 studenteController.addStudente({
                     body: {
                         matricola: `${studente.Matricola}`,
                         nome: `${studente.Nome}`,
                         cognome: `${studente.Cognome}`,
-                        cf: `${studente.cf}`,
-                        codCdsIscr: `${studente.codCdsIscr}`,
+                        cf: `${studente["Codice Fiscale"]}`,
+                        codCdsIscr: `${studente["Codice cds iscr"]}`,
                         regolamento: `${studente.Regolamento}`,
-                        cfu: `${studente.cfu}`
+                        cfu: `${studente["Cfu Ins."]}`
                     }
                 }, function (err, result) {
                     if (!result && err) {
@@ -234,19 +240,25 @@ route.post("/uploadFile", (req, res) => {
                         maxRisposte: 0,
                         risposteDate: 0,
                         maxVotoScritto: 0,
-                        formula: `-`,
+                        formula: ``,
                         orale: 0,
                         laboratorio: 0,
-                        votoComplessivo: `-`,
+                        votoComplessivo: 0,
                         stato: `-`
                     }
                 },function(err,result){
                     if(!result && err){
                         console.log("ERRORE: ",err);
                     }
+                    try {
+                        fs.unlinkSync("C:/Users/salva/OneDrive/Desktop/WebRegisterApp2.0/server/helper/studPrenotati/"+estensione[0]+".csv")
+                        console.log("FILE RIMOSSO");
+                    }catch(err) {
+                        //console.error(err)
+                    }
                 })
             })
-            res.redirect("appello?idAppello="+req.query.idAppello);
+            res.redirect("/visualizzaAppelli");
         })
         .catch((err) => {
             console.log(err.message);

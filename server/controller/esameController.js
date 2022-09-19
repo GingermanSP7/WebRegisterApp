@@ -3,11 +3,11 @@ const math = require("mathjs");
 
 
 exports.creaEsame = (req, callback) => {
-    const formula = req.body.formula.toLowerCase();
-    console.log(req.body);
-    let formulaNoSpace = formula.replaceAll(" ", '');
-    if (formulaNoSpace.includes("math.round(")) {
-        let exp = formulaNoSpace.substr(11, formulaNoSpace.length - 12);
+    // console.log(req.body);
+    console.log("FORMULA: ",req.body.formula);
+    let formulaNoSpace = req.body.formula.replaceAll(" ", '');
+    //if (formulaNoSpace.includes("round(")) {   
+        let exp = formulaNoSpace;
         if(exp.includes("$rispcorrette")){
             exp = exp.replace("$rispcorrette",req.body.risposteEsatte);
         }
@@ -17,8 +17,9 @@ exports.creaEsame = (req, callback) => {
         if(exp.includes("$maxvotoscritto")){
             exp = exp.replace("$maxvotoscritto",req.body.maxVotoScritto);
         }
-        let votoScrittoOrale = Math.round(math.evaluate(exp));
-        console.log(exp);
+        let votoScrittoOrale = eval(exp) == undefined ? 0:eval(exp);
+        console.log("EXP: ",exp);
+        console.log("VOTO SCRITTO: ",votoScrittoOrale);
 
 
         console.log("NON AGGIORNATO: ", req.body);
@@ -26,10 +27,10 @@ exports.creaEsame = (req, callback) => {
         req.body.formula = formulaNoSpace;
         req.body.votoComplessivo = votoScrittoOrale + parseInt(req.body.orale) + parseInt(req.body.laboratorio);
         console.log("AGGIORNATO: ", req.body);
-    }
-    else {
-        req.body.formula = 'Formula non valida!';
-    }
+    //}
+    //else {
+        req.body.formula = "Formula non valida!";
+    //}
     // console.log("BODY CONTROLLER ESAME: ", req.body);
     esameModel.creaEsame(req, function (err, result) {
         if (!result) {
@@ -80,31 +81,30 @@ exports.updateEsame = (req, callback) => {
     /**
      * Analisi del body per il valore del campo 'Formula'
      */
-    const formula = req.body.formula.toLowerCase();
-    let formulaNoSpace = formula.replaceAll(" ", '');
-    if (formulaNoSpace.includes("math.round(")) {
-        let exp = formulaNoSpace.substr(11, formulaNoSpace.length - 12);
-        if(exp.includes("$rispcorrette")){
-            exp = exp.replace("$rispcorrette",req.body.risposteEsatte);
-        }
-        if(exp.includes("$maxdomande")){
-            exp = exp.replace("$maxdomande",req.body.maxDomande);
-        }
-        if(exp.includes("$maxvotoscritto")){
-            exp = exp.replace("$maxvotoscritto",req.body.maxVotoScritto);
-        }
-        console.log("espressione: ",exp);
-        let votoScrittoOrale = Math.round(math.evaluate(exp));
-
-        console.log("NON AGGIORNATO: ", req.body);
-
-        req.body.formula = formulaNoSpace;
-        req.body.votoComplessivo = votoScrittoOrale + parseInt(req.body.orale) + parseInt(req.body.laboratorio);
-        console.log("AGGIORNATO: ", req.body);
+    console.log("FORMULA: ", req.body.formula);
+    let formulaNoSpace = req.body.formula.replaceAll(" ", '');
+    let exp = formulaNoSpace;
+    if (exp.includes("$rispcorrette")) {
+        exp = exp.replace("$rispcorrette", req.body.risposteEsatte);
     }
-    else {
-        req.body.formula = 'Formula non valida!';
+    if (exp.includes("$maxdomande")) {
+        exp = exp.replace("$maxdomande", req.body.maxDomande);
     }
+    if (exp.includes("$maxvotoscritto")) {
+        exp = exp.replace("$maxvotoscritto", req.body.maxVotoScritto);
+    }
+    let votoScrittoOrale = eval(exp) == undefined ? 0 : eval(exp);
+    console.log("EXP: ", exp);
+    console.log("VOTO SCRITTO: ", votoScrittoOrale);
+
+
+    console.log("NON AGGIORNATO: ", req.body);
+
+    req.body.formula = formulaNoSpace;
+    req.body.votoComplessivo = votoScrittoOrale + parseInt(req.body.orale) + parseInt(req.body.laboratorio);
+    console.log("AGGIORNATO: ", req.body);
+
+     // console.log("BODY CONTROLLER ESAME: ", req.body);
     esameModel.updateEsame(req, function (err, result) {
         if (!result) {
             console.log("Errore controller: ");
