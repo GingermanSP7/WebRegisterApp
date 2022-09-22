@@ -7,13 +7,14 @@ const esameController = require("../controller/esameController");
 const progettistaController = require("../controller/progettistaController"); 
 const xlsx = require("xlsx");
 const fs = require("fs");
+const config = require("../../config.json");
 
 /**
  * @Description route homepage
  * @method GET/
  */
 route.get("/", (req, res) => {
-    res.render("index");
+    res.render("index", {courseName: config.courseName});
 })
 
 /**
@@ -251,7 +252,8 @@ route.post("/uploadFile", (req, res) => {
                         console.log("ERRORE: ",err);
                     }
                     try {
-                        fs.unlinkSync("C:/Users/salva/OneDrive/Desktop/WebRegisterApp2.0/server/helper/studPrenotati/"+estensione[0]+".csv")
+                        fs.unlinkSync("C:/Users/salva/OneDrive/Desktop/WebRegisterApp2.0/server/helper/studPrenotati/"+estensione[0]+".csv");
+                        fs.unlinkSync("C:/Users/salva/OneDrive/Desktop/WebRegisterApp2.0/server/helper/studPrenotati/"+req.body.nomeFile[0]);
                         console.log("FILE RIMOSSO");
                     }catch(err) {
                         //console.error(err)
