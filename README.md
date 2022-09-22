@@ -1,7 +1,7 @@
 # WebRegisterApp
 
 ## Descrizione 📄
-WebRegisterApp è un'applicazione sviluppata per fornire il servizio di un 'mini registro' online per la materia universitaria Web Programming.
+WebRegisterApp è un'applicazione sviluppata per fornire il servizio di un 'mini registro' online per i corsi universitari.
 L'applicazione fornisce diverse funzionalità:
 - Creare degli appelli per gestire gli studenti prenotati e gli esami dello specifico appello
 - Visualizzare tutti gli appelli creati e registrati nella base di dati
@@ -11,7 +11,7 @@ L'applicazione fornisce diverse funzionalità:
 - Possibilità di aggiungere dei trigger manuali per la gestione automatica degli studenti che hanno uno stato di 'Progettista'
 - Visualizzare tutti gli studenti registrati nella base di dati con la possibilità di modifare i singoli o eliminarli
 - Tenere traccia del numero di studenti che sono stati promossi o rimandati tramite un piccolo grafico all'interno della homepage
-- Tenere traccia del numero di studenti che hanno effettuato esami e del numero di studenti che hanno fatto almeno una prenotazione a un appello tramite un contatore situato nella pagina iniziale dell'applicazione ❌
+- Tenere traccia del numero di studenti che hanno effettuato esami tramite un contatore situato nella pagina iniziale dell'applicazione 
 - Ricercare studenti, esami o progetti tramite la sezione apposita nella pagina web. 
 
 Tale applicazione si compone di due parti: ✨
